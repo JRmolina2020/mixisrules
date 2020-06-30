@@ -1,12 +1,13 @@
 <template>
     <div>
         <Modal-Resource v-on:clear="clear" title="Registro de roles">
-            <section v-if="!form.id" slot="title">Registro de roles</section>
-            <section v-else slot="title">Editar roles</section>
+            <section v-if="!form.id" slot="title">
+                Registro de categoria
+            </section>
+            <section v-else slot="title">Editar categoria</section>
             <section slot="closebtn">
                 <button
                     type="button"
-                    @click="clearrolesitem"
                     class="close"
                     data-dismiss="modal"
                     aria-label="Close"
@@ -14,7 +15,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </section>
-            <section slot="titlebutton">Registrar roles</section>
+            <section slot="titlebutton">Registrar categoria</section>
             <section slot="body">
                 <form
                     method="POST"
@@ -30,7 +31,7 @@
                             :class="{
                                 'is-invalid': submitted && errors.has('nombre')
                             }"
-                            placeholder="Nombre del permiso a registrar"
+                            placeholder="Nombre de la categoria a registrar"
                             v-model="form.name"
                             name="nombre"
                         />
@@ -41,37 +42,7 @@
                             {{ errors.first("nombre") }}
                         </div>
                     </div>
-                    <div v-if="form.id" class="row">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Permiso</th>
-                                    <th>
-                                        <i class="fi fi-wink"></i>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr
-                                    v-for="(item, index) in permissions"
-                                    :key="index"
-                                >
-                                    <td>{{ item.name }}</td>
-                                    <td>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    v-model="form.permissions"
-                                                    :value="item.name"
-                                                />
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
                     <button
                         :hidden="errors.any()"
                         type="submit"
@@ -95,60 +66,40 @@
 </template>
 <script>
 import ModalResource from "../utilities/modal.vue";
-import add from "../../mixins/add";
 import { mapState } from "vuex";
+import add from "../../mixins/add";
 export default {
     $_veeValidate: {
         validator: "new"
     },
     name: "add",
+    mixins: [add],
     components: {
         ModalResource
     },
     data() {
         return {
-            action: "Roleactions",
-            url: "api/roles",
+            action: "Categorieactions",
+            url: "api/categories",
             submitted: true,
-            rolesitem: [],
             form: {
                 id: null,
-                name: null,
-                permissions: []
+                name: null
             }
         };
     },
-    mixins: [add],
-    computed: {
-        ...mapState(["permissions"])
-    },
-    created() {
-        this.getlist();
-    },
+    computed: {},
     methods: {
-        getlist() {
-            this.$store.dispatch("Permissionsactions");
-        },
         show(row) {
             this.status = true;
-            this.form.id = row.id;
             this.form.name = row.name;
-            row.permissions.forEach(element => {
-                this.rolesitem.push(element.name);
-            });
-            this.form.permissions = this.rolesitem;
+            this.form.id = row.id;
             $("#model").modal("show");
-        },
-        clearrolesitem() {
-            this.rolesitem = [];
-            $("#model").modal("hide");
         },
         clear() {
             this.form.id = null;
             this.form.name = null;
             this.$validator.reset();
-            this.rolesitem = [];
-            this.form.permissions = [];
         }
     }
 };

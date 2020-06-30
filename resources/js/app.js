@@ -28,6 +28,10 @@ Vue.component(
 );
 Vue.component("home_app", require("./components/indicatorHome.vue").default);
 Vue.component("profile", require("./components/users/profile.vue").default);
+Vue.component(
+    "categories",
+    require("./components/categories/index.vue").default
+);
 const app = new Vue({
     el: "#app",
     store

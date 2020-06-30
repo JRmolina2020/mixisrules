@@ -10,21 +10,21 @@ Route::post('login', 'AuthController@login');
 //auth
 Route::group(['middleware' => 'auth'], function () {
     Route::get('home', 'UserController@countuser');
+    Route::get('usuarios', function () {
+        return view('users.index');
+    });
+    Route::get('perfil', function () {
+        return view('users.profile');
+    });
 
-    Route::group(['middleware' => ['permission:Administrador de seguridad']], function () {
-        Route::get('usuarios', function () {
-            return view('users.index');
-        });
-        Route::get('perfil', function () {
-            return view('users.profile');
-        });
-
-        Route::get('roles', function () {
-            return view('roles.index');
-        });
-        Route::get('permisos', function () {
-            return view('permissions.index');
-        });
+    Route::get('roles', function () {
+        return view('roles.index');
+    });
+    Route::get('permisos', function () {
+        return view('permissions.index');
+    });
+    Route::get('categorias', function () {
+        return view('categories.index');
     });
 
     Route::prefix('api')->group(function () {
@@ -43,7 +43,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('permissions', 'PermissionController')->except([
             'show', 'create', 'edit'
         ]);
-        //categorie
-        Route::post('categorie', 'CategoryController@store');
+        //categories
+        Route::resource('categories', 'CategorieController')->except([
+            'show', 'create', 'edit'
+        ]);
+        Route::put('categories/available/{id}', 'CategorieController@available');
+        Route::put('categories/locked/{id}', 'CategorieController@locked');
     });
 });
