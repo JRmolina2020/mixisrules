@@ -130,7 +130,6 @@
 </template>
 <script>
 import ModalResource from "../utilities/modal.vue";
-import Multiselect from "vue-multiselect";
 import { mapState } from "vuex";
 import add from "../../mixins/add";
 export default {
@@ -139,8 +138,7 @@ export default {
   },
   name: "add",
   components: {
-    ModalResource,
-    Multiselect
+    ModalResource
   },
   data() {
     return {
@@ -167,7 +165,6 @@ export default {
     getlist() {
       this.$store.dispatch("Roleactions");
     },
-
     show(row) {
       this.form.id = row.id;
       this.form.name = row.name;
