@@ -2858,9 +2858,251 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/users/add.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Jr Molina\\Desktop\\jupiter\\resources\\js\\components\\users\\add.vue: Unexpected token (153:0)\n\n\u001b[0m \u001b[90m 151 | \u001b[39m\u001b[36mimport\u001b[39m add from \u001b[32m\"../../mixins/add\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 152 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 153 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 154 | \u001b[39m  $_veeValidate\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 155 | \u001b[39m    validator\u001b[33m:\u001b[39m \u001b[32m\"new\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 156 | \u001b[39m  }\u001b[33m,\u001b[39m\u001b[0m\n    at Parser._raise (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Parser.raiseWithData (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:735:17)\n    at Parser.raise (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:729:17)\n    at Parser.unexpected (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:8779:16)\n    at Parser.parseIdentifierName (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10771:18)\n    at Parser.parseIdentifier (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10748:23)\n    at Parser.parseMaybePrivateName (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10101:19)\n    at Parser.parsePropertyName (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10572:126)\n    at Parser.parseObjectMember (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10473:10)\n    at Parser.parseObj (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10396:25)\n    at Parser.parseExprAtom (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:10017:28)\n    at Parser.parseExprSubscripts (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:9624:23)\n    at Parser.parseMaybeUnary (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:9604:21)\n    at Parser.parseExprOps (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:9474:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:9447:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:9402:21)\n    at Parser.parseExportDefaultExpression (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:12306:24)\n    at Parser.parseExport (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:12208:31)\n    at Parser.parseStatementContent (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:11208:27)\n    at Parser.parseStatement (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:11104:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:11679:25)\n    at Parser.parseBlockBody (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:11665:10)\n    at Parser.parseTopLevel (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:11035:10)\n    at Parser.parse (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:12671:10)\n    at parse (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\parser\\lib\\index.js:12722:38)\n    at parser (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\core\\lib\\parser\\index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\@babel\\core\\lib\\transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\gensync\\index.js:254:32)\n    at C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\gensync\\index.js:266:13\n    at async.call.result.err.err (C:\\Users\\Jr Molina\\Desktop\\jupiter\\node_modules\\gensync\\index.js:216:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/add */ "./resources/js/mixins/add.js");
+/* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mixins_add__WEBPACK_IMPORTED_MODULE_2__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  $_veeValiate: {
+    validator: "new"
+  },
+  name: "add",
+  components: {
+    ModalResource: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      actions: "Useractions",
+      url: "api/users",
+      submitted: true,
+      form: {
+        id: null,
+        name: "",
+        surname: "",
+        email: "",
+        rol: []
+      }
+    };
+  },
+  mixins: [_mixins_add__WEBPACK_IMPORTED_MODULE_2___default.a],
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["roles"])),
+  created: function created() {
+    this.getlist();
+  },
+  methods: {
+    getlist: function getlist() {
+      this.$store.dispatch("Roleactions");
+    },
+    show: function show(row) {
+      this.form.id = row.id;
+      this.form.name = row.name;
+      this.form.surname = row.surname;
+      this.form.email = row.email;
+      this.form.rol = row.roles[0].name;
+      $("#model").modal("show");
+    },
+    data: function data() {
+      return {
+        actions: "Useractions",
+        url: "api/users",
+        submitted: true,
+        form: {
+          id: null,
+          name: "",
+          surname: "",
+          email: "",
+          rol: []
+        }
+      };
+    },
+    mixins: [_mixins_add__WEBPACK_IMPORTED_MODULE_2___default.a],
+    computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["roles"])),
+    created: function created() {
+      this.getlist();
+    },
+    methods: {
+      getlist: function getlist() {
+        this.$store.dispatch("Roleactions");
+      },
+      show: function show(row) {
+        this.form.id = row.id;
+        this.form.name = row.name;
+        this.form.surname = row.surname;
+        this.form.email = row.email;
+        this.form.rol = row.roles[0].name;
+        $("#model").modal("show");
+      },
+      clear: function clear() {
+        this.form.id = null;
+        this.form.name = null;
+        this.form.surname = null;
+        this.form.email = null;
+        this.form.rol = null;
+        this.$validator.reset();
+      }
+    }
+  }
+});
 
 /***/ }),
 

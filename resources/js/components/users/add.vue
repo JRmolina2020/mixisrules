@@ -150,54 +150,12 @@ import ModalResource from "../utilities/modal.vue";
 import { mapState } from "vuex";
 import add from "../../mixins/add";
 export default {
-<<<<<<< HEAD
-  $_veeValidate: {
-    validator: "new"
-  },
-  name: "add",
-  components: {
-    ModalResource
-  },
-  data() {
-    return {
-      actions: "Useractions",
-      url: "api/users",
-      submitted: true,
-      form: {
-        id: null,
-        name: "",
-        surname: "",
-        email: "",
-        rol: []
-      }
-    };
-  },
-  mixins: [add],
-  computed: {
-    ...mapState(["roles"])
-  },
-  created() {
-    this.getlist();
-  },
-  methods: {
-    getlist() {
-      this.$store.dispatch("Roleactions");
-    },
-    show(row) {
-      this.form.id = row.id;
-      this.form.name = row.name;
-      this.form.surname = row.surname;
-      this.form.email = row.email;
-      this.form.rol = row.roles[0].name;
-      $("#model").modal("show");
-=======
-    $_veeValidate: {
+    $_veeValiate: {
         validator: "new"
     },
     name: "add",
     components: {
         ModalResource
->>>>>>> categorie
     },
     data() {
         return {
@@ -224,7 +182,6 @@ export default {
         getlist() {
             this.$store.dispatch("Roleactions");
         },
-
         show(row) {
             this.form.id = row.id;
             this.form.name = row.name;
@@ -233,13 +190,48 @@ export default {
             this.form.rol = row.roles[0].name;
             $("#model").modal("show");
         },
-        clear() {
-            this.form.id = null;
-            this.form.name = null;
-            this.form.surname = null;
-            this.form.email = null;
-            this.form.rol = null;
-            this.$validator.reset();
+        data() {
+            return {
+                actions: "Useractions",
+                url: "api/users",
+                submitted: true,
+                form: {
+                    id: null,
+                    name: "",
+                    surname: "",
+                    email: "",
+                    rol: []
+                }
+            };
+        },
+        mixins: [add],
+        computed: {
+            ...mapState(["roles"])
+        },
+        created() {
+            this.getlist();
+        },
+        methods: {
+            getlist() {
+                this.$store.dispatch("Roleactions");
+            },
+
+            show(row) {
+                this.form.id = row.id;
+                this.form.name = row.name;
+                this.form.surname = row.surname;
+                this.form.email = row.email;
+                this.form.rol = row.roles[0].name;
+                $("#model").modal("show");
+            },
+            clear() {
+                this.form.id = null;
+                this.form.name = null;
+                this.form.surname = null;
+                this.form.email = null;
+                this.form.rol = null;
+                this.$validator.reset();
+            }
         }
     }
 };
