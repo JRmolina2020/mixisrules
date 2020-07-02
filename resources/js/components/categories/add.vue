@@ -91,7 +91,6 @@ export default {
     computed: {},
     methods: {
         show(row) {
-            this.status = true;
             this.form.name = row.name;
             this.form.id = row.id;
             $("#model").modal("show");

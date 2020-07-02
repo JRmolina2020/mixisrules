@@ -9,10 +9,6 @@ use App\Model\Categorie;
 class CategorieController extends Controller
 {
 
-    public function __invoke()
-    {
-        return view('categories.index');
-    }
     /**
      * Display a listing of the resource.
      *

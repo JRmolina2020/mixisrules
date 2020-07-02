@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Categorie extends Model
 {
     protected $fillable = [
-        'name'
+        'name',
     ];
+    function products()
+    {
+        return $this->hasMany('App\Model\Product');
+    }
 }

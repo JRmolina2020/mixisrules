@@ -11,11 +11,13 @@ export default new Vuex.Store({
         roles: [],
         permissions: [],
         categories: [],
+        products: [],
         status: false,
         urlusers: "api/users/",
         urlroles: "api/roles/",
         urlpermissions: "api/permissions/",
-        urlcategories: "api/categories/"
+        urlcategories: "api/categories/",
+        urlproducts: "api/products/"
     },
     mutations: {
         Usermutations(state, item) {
@@ -29,6 +31,9 @@ export default new Vuex.Store({
         },
         Categoriemutations(state, item) {
             state.categories = item;
+        },
+        Productmutations(state, item) {
+            state.products = item;
         }
     },
     actions: {
@@ -63,6 +68,15 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get(state.urlcategories);
                 commit("Categoriemutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Productactions({ commit, state }) {
+            try {
+                let response = await axios.get(`${state.urlproducts}`);
+                commit("Productmutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

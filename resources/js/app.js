@@ -32,6 +32,7 @@ Vue.component(
     "categories",
     require("./components/categories/index.vue").default
 );
+Vue.component("products", require("./components/products/index.vue").default);
 const app = new Vue({
     el: "#app",
     store

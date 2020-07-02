@@ -26,6 +26,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('categorias', function () {
         return view('categories.index');
     });
+    Route::get('productos', function () {
+        return view('products.index');
+    });
 
     Route::prefix('api')->group(function () {
         Route::resource('users', 'UserController')->except([
@@ -45,9 +48,15 @@ Route::group(['middleware' => 'auth'], function () {
         ]);
         //categories
         Route::resource('categories', 'CategorieController')->except([
-            'show', 'create', 'edit'
+            'show', 'create', 'edit',
         ]);
         Route::put('categories/available/{id}', 'CategorieController@available');
         Route::put('categories/locked/{id}', 'CategorieController@locked');
+        //products
+        Route::resource('products', 'ProductController')->except([
+            'show', 'create', 'edit'
+        ]);
+        Route::put('products/available/{id}', 'ProductController@available');
+        Route::put('products/locked/{id}', 'ProductController@locked');
     });
 });

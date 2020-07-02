@@ -59,6 +59,12 @@
         <p>Categorias</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{ url('productos') }}" class="nav-link">
+        <i class="fi fi-shopping-bag-1"></i>
+        <p>Productos</p>
+      </a>
+    </li>
     <li class="nav-item has-treeview">
       <a class="nav-link" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
