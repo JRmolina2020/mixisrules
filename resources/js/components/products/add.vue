@@ -106,7 +106,7 @@
                                 <label for>Precio de venta</label>
                                 <input
                                     type="number"
-                                    v-validate="'required|between:50,100000000'"
+                                    v-validate="'required|between:0,100000000'"
                                     class="form-control form-control-sm"
                                     :class="{
                                         'is-invalid':

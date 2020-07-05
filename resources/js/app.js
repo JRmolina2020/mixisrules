@@ -33,6 +33,7 @@ Vue.component(
     require("./components/categories/index.vue").default
 );
 Vue.component("products", require("./components/products/index.vue").default);
+Vue.component("clients", require("./components/clients/index.vue").default);
 const app = new Vue({
     el: "#app",
     store

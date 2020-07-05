@@ -12,12 +12,18 @@ export default new Vuex.Store({
         permissions: [],
         categories: [],
         products: [],
+        persons: [],
+        departaments: [],
+        cities: [],
         status: false,
         urlusers: "api/users/",
         urlroles: "api/roles/",
         urlpermissions: "api/permissions/",
         urlcategories: "api/categories/",
-        urlproducts: "api/products/"
+        urlproducts: "api/products/",
+        urlpersons: "api/persons/",
+        urldepartaments: "api/departaments/",
+        urlcities: "api/cities/"
     },
     mutations: {
         Usermutations(state, item) {
@@ -34,6 +40,15 @@ export default new Vuex.Store({
         },
         Productmutations(state, item) {
             state.products = item;
+        },
+        Personmutations(state, item) {
+            state.persons = item;
+        },
+        Departamentmutations(state, item) {
+            state.departaments = item;
+        },
+        Citymutations(state, item) {
+            state.cities = item;
         }
     },
     actions: {
@@ -77,6 +92,33 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get(`${state.urlproducts}`);
                 commit("Productmutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Personactions({ commit, state }) {
+            try {
+                let response = await axios.get(`${state.urlpersons}`);
+                commit("Personmutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Departamentactions({ commit, state }) {
+            try {
+                let response = await axios.get(`${state.urldepartaments}`);
+                commit("Departamentmutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Cityactions({ commit, state }, id) {
+            try {
+                let response = await axios.get(`${state.urlcities}${id}`);
+                commit("Citymutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

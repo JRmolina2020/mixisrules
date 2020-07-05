@@ -29,6 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('productos', function () {
         return view('products.index');
     });
+    Route::get('clientes', function () {
+        return view('clients.index');
+    });
 
     Route::prefix('api')->group(function () {
         Route::resource('users', 'UserController')->except([
@@ -58,5 +61,12 @@ Route::group(['middleware' => 'auth'], function () {
         ]);
         Route::put('products/available/{id}', 'ProductController@available');
         Route::put('products/locked/{id}', 'ProductController@locked');
+        //person client
+        Route::post('persons', 'PersonController@store');
+        Route::get('persons',  'PersonController@index');
+
+        //departaments and cities
+        Route::get('departaments/', 'DepartamentController@index');
+        Route::get('cities/{id}', 'CityController@index');
     });
 });

@@ -65,6 +65,35 @@
         <p>Productos</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="fi fi-phone"></i>
+        <p>
+        Contactos
+          <i class="right fi fi-more-v-a"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('clientes') }}" class="nav-link">
+              <i class="fi fi-male"></i>
+              <p>
+                Clientes
+              </p>
+            </a>
+          </li>
+      </ul>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('roles') }}" class="nav-link">
+              <i class="fi fi-persons"></i>
+              <p>
+                Proveedores
+              </p>
+            </a>
+          </li>
+      </ul>
+    </li> 
     <li class="nav-item has-treeview">
       <a class="nav-link" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
