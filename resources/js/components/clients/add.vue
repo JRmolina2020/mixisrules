@@ -399,6 +399,7 @@ import { ModelListSelect } from "vue-search-select";
 import "vue-search-select/dist/VueSearchSelect.css";
 import { mapState } from "vuex";
 import add from "../../mixins/add";
+
 export default {
     $_veeValidate: {
         validator: "new"
@@ -415,6 +416,7 @@ export default {
         return {
             action: "Personactions",
             url: "api/persons",
+            status: false,
             submitted: true,
             isnit: false,
             depid: null,
@@ -440,7 +442,7 @@ export default {
         };
     },
     computed: {
-        ...mapState(["cities", "departaments", "status"])
+        ...mapState(["cities", "departaments"])
     },
     created() {
         this.getdepartaments();
@@ -466,6 +468,7 @@ export default {
             this.getdepartaments;
             this.getcities(this.form.departament_id);
             this.$refs.wizard.changeTab(0, 0);
+            this.status = false;
             $("#model").modal("show");
         },
 
@@ -505,6 +508,7 @@ export default {
             this.form.business_name = null;
             this.$validator.reset();
             this.$refs.wizard.changeTab(0, 0);
+            this.status = false;
         }
     }
 };

@@ -77,6 +77,7 @@ export default {
     },
     data() {
         return {
+            status: false,
             action: "Permissionsactions",
             url: "api/permissions",
             submitted: true,
@@ -91,11 +92,13 @@ export default {
         show(row) {
             this.form.name = row.name;
             this.form.id = row.id;
+            this.status = false;
             $("#model").modal("show");
         },
         clear() {
             this.form.id = null;
             this.form.name = null;
+            this.status = false;
             this.$validator.reset();
         }
     }

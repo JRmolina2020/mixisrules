@@ -31,6 +31,7 @@
     },
     "dependencies": {
         "laravel-permission-to-vuejs": "^2.0.5",
+        "vue-progress-path": "0.0.2",
         "vuex": "^3.4.0"
     }
 }

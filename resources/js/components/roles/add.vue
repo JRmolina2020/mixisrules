@@ -107,6 +107,7 @@ export default {
     },
     data() {
         return {
+            status: false,
             action: "Roleactions",
             url: "api/roles",
             submitted: true,
@@ -137,6 +138,7 @@ export default {
                 this.rolesitem.push(element.name);
             });
             this.form.permissions = this.rolesitem;
+            this.status = false;
             $("#model").modal("show");
         },
         clearrolesitem() {
@@ -149,6 +151,7 @@ export default {
             this.$validator.reset();
             this.rolesitem = [];
             this.form.permissions = [];
+            this.status = false;
         }
     }
 };

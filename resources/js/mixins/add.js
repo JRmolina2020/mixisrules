@@ -1,6 +1,17 @@
 module.exports = {
     methods: {
         add(id, actions) {
+            if (this.status == false) {
+                Swal.fire({
+                    position: "center",
+                    imageUrl:
+                        "https://lavchat-user.lavenirapps.co/assets/images/loading.gif",
+                    imageWidth: 200,
+                    imageHeight: 200,
+                    title: "Cargando......",
+                    showConfirmButton: false
+                });
+            }
             this.$validator.validate().then(valid => {
                 if (valid) {
                     if (id) {
@@ -18,6 +29,7 @@ module.exports = {
                                 });
                                 $("#model").modal("hide");
                                 this.clear();
+                                this.status = true;
                             })
                             .catch(error => {
                                 console.log(error.response);
@@ -36,7 +48,7 @@ module.exports = {
                                 $("#model").modal("hide");
                                 this.$store.dispatch(actions);
                                 this.clear();
-                                this.isLoading = false;
+                                this.status = true;
                             })
                             .catch(error => {
                                 console.log(error.response);

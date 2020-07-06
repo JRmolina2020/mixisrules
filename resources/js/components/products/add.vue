@@ -181,6 +181,7 @@ export default {
     },
     data() {
         return {
+            status: false,
             action: "Productactions",
             url: "api/products",
             submitted: true,
@@ -212,6 +213,7 @@ export default {
             this.form.sale_price = row.sale_price;
             this.form.description = row.description;
             this.form.id = row.id;
+            this.status = false;
             $("#model").modal("show");
         },
         clear() {
@@ -221,6 +223,7 @@ export default {
             this.form.name = null;
             this.form.sale_price = 0;
             this.form.description = null;
+            this.status = false;
             this.$validator.reset();
         }
     }

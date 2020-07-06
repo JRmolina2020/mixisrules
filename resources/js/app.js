@@ -7,6 +7,7 @@ import auth from "./mixins/Auth.js";
 import LaravelPermissionToVueJS from "laravel-permission-to-vuejs";
 import Swal from "sweetalert2";
 window.Swal = Swal;
+
 //start validate
 import es from "vee-validate/dist/locale/es";
 import VeeValidate, { Validator } from "vee-validate";
@@ -18,6 +19,7 @@ Validator.localize("es", es);
 Vue.use(SmartTable);
 Vue.use(LaravelPermissionToVueJS);
 Vue.mixin(auth);
+
 //end use
 Vue.component("login", require("./components/login.vue").default);
 Vue.component("users", require("./components/users/index.vue").default);

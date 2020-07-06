@@ -2004,6 +2004,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      status: false,
       action: "Categorieactions",
       url: "api/categories",
       submitted: true,
@@ -2018,11 +2019,13 @@ __webpack_require__.r(__webpack_exports__);
     show: function show(row) {
       this.form.name = row.name;
       this.form.id = row.id;
+      this.status = false;
       $("#model").modal("show");
     },
     clear: function clear() {
       this.form.id = null;
       this.form.name = null;
+      this.status = false;
       this.$validator.reset();
     }
   }
@@ -2629,6 +2632,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       action: "Personactions",
       url: "api/persons",
+      status: false,
       submitted: true,
       isnit: false,
       depid: null,
@@ -2653,7 +2657,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_5__["mapState"])(["cities", "departaments", "status"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_5__["mapState"])(["cities", "departaments"])),
   created: function created() {
     this.getdepartaments();
     console.log(this.cities);
@@ -2678,6 +2682,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getdepartaments;
       this.getcities(this.form.departament_id);
       this.$refs.wizard.changeTab(0, 0);
+      this.status = false;
       $("#model").modal("show");
     },
     getdepartaments: function getdepartaments() {
@@ -2716,6 +2721,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.business_name = null;
       this.$validator.reset();
       this.$refs.wizard.changeTab(0, 0);
+      this.status = false;
     }
   }
 });
@@ -2954,9 +2960,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   $_veeValidate: {
     validator: "new"
@@ -3092,6 +3095,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      status: false,
       action: "Permissionsactions",
       url: "api/permissions",
       submitted: true,
@@ -3106,11 +3110,13 @@ __webpack_require__.r(__webpack_exports__);
     show: function show(row) {
       this.form.name = row.name;
       this.form.id = row.id;
+      this.status = false;
       $("#model").modal("show");
     },
     clear: function clear() {
       this.form.id = null;
       this.form.name = null;
+      this.status = false;
       this.$validator.reset();
     }
   }
@@ -3444,6 +3450,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      status: false,
       action: "Productactions",
       url: "api/products",
       submitted: true,
@@ -3472,6 +3479,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.sale_price = row.sale_price;
       this.form.description = row.description;
       this.form.id = row.id;
+      this.status = false;
       $("#model").modal("show");
     },
     clear: function clear() {
@@ -3481,6 +3489,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.name = null;
       this.form.sale_price = 0;
       this.form.description = null;
+      this.status = false;
       this.$validator.reset();
     }
   }
@@ -3785,6 +3794,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      status: false,
       action: "Roleactions",
       url: "api/roles",
       submitted: true,
@@ -3815,6 +3825,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.rolesitem.push(element.name);
       });
       this.form.permissions = this.rolesitem;
+      this.status = false;
       $("#model").modal("show");
     },
     clearrolesitem: function clearrolesitem() {
@@ -3827,6 +3838,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$validator.reset();
       this.rolesitem = [];
       this.form.permissions = [];
+      this.status = false;
     }
   }
 });
@@ -4136,6 +4148,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      status: false,
       actions: "Useractions",
       url: "api/users",
       submitted: true,
@@ -4163,6 +4176,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.surname = row.surname;
       this.form.email = row.email;
       this.form.rol = row.roles[0].name;
+      this.status = false;
       $("#model").modal("show");
     },
     data: function data() {
@@ -4194,6 +4208,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.form.surname = row.surname;
         this.form.email = row.email;
         this.form.rol = row.roles[0].name;
+        this.status = false;
         $("#model").modal("show");
       },
       clear: function clear() {
@@ -58903,31 +58918,27 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        !_vm.status
-          ? _c("div", { staticClass: "col-4" }, [
-              _c(
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary btn-block",
+              attrs: { type: "submit", hidden: _vm.errors.any() }
+            },
+            [_vm._v("\n                Ingresar\n            ")]
+          ),
+          _vm._v(" "),
+          _vm.errors.any()
+            ? _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary btn-block",
-                  attrs: { type: "submit", hidden: _vm.errors.any() }
+                  staticClass: "btn btn-danger btn-block disabled",
+                  attrs: { type: "button" }
                 },
                 [_vm._v("\n                Ingresar\n            ")]
-              ),
-              _vm._v(" "),
-              _vm.errors.any()
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger btn-block disabled",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("\n                Ingresar\n            ")]
-                  )
-                : _vm._e()
-            ])
-          : _c("div", { staticClass: "col-4" }, [
-              _c("i", { staticClass: "fi fi-spinner-rotate-forward fi-spin" })
-            ])
+              )
+            : _vm._e()
+        ])
       ])
     ]
   )
@@ -82320,6 +82331,17 @@ module.exports = {
     add: function add(id, actions) {
       var _this = this;
 
+      if (this.status == false) {
+        Swal.fire({
+          position: "center",
+          imageUrl: "https://lavchat-user.lavenirapps.co/assets/images/loading.gif",
+          imageWidth: 200,
+          imageHeight: 200,
+          title: "Cargando......",
+          showConfirmButton: false
+        });
+      }
+
       this.$validator.validate().then(function (valid) {
         if (valid) {
           if (id) {
@@ -82337,6 +82359,8 @@ module.exports = {
               $("#model").modal("hide");
 
               _this.clear();
+
+              _this.status = true;
             })["catch"](function (error) {
               console.log(error.response);
             });
@@ -82355,7 +82379,7 @@ module.exports = {
 
               _this.clear();
 
-              _this.isLoading = false;
+              _this.status = true;
             })["catch"](function (error) {
               console.log(error.response);
             });

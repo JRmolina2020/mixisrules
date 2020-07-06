@@ -159,6 +159,7 @@ export default {
     },
     data() {
         return {
+            status: false,
             actions: "Useractions",
             url: "api/users",
             submitted: true,
@@ -188,6 +189,7 @@ export default {
             this.form.surname = row.surname;
             this.form.email = row.email;
             this.form.rol = row.roles[0].name;
+            this.status = false;
             $("#model").modal("show");
         },
         data() {
@@ -222,6 +224,7 @@ export default {
                 this.form.surname = row.surname;
                 this.form.email = row.email;
                 this.form.rol = row.roles[0].name;
+                this.status = false;
                 $("#model").modal("show");
             },
             clear() {
