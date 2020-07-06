@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->boolean('responsible_iva')->default(0);
             $table->string('business_name', 150)->nullable(); //nombre del negocio
             $table->string('tributary_information')->default('ZZZ');
-            $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('people')->onDelete('cascade');
         });
     }
 
