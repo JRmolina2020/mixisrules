@@ -14,7 +14,7 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->unsignedBigInteger('person_id');
+            $table->unsignedBigInteger('id');
             $table->integer('type_person')->default(2); //2 = natural , 1//juridica
             $table->integer('regimen_type')->default(49); //49 = no iva, 48//si iva
             $table->boolean('responsible_iva')->default(0);
