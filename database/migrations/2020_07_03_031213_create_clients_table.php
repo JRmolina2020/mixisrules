@@ -14,13 +14,13 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('person_id');
             $table->integer('type_person')->default(2); //2 = natural , 1//juridica
             $table->integer('regimen_type')->default(49); //49 = no iva, 48//si iva
             $table->boolean('responsible_iva')->default(0);
             $table->string('business_name', 150)->nullable(); //nombre del negocio
             $table->string('tributary_information')->default('ZZZ');
-            $table->foreign('id')->references('id')->on('people')->onDelete('cascade');
+            $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade');
         });
     }
 

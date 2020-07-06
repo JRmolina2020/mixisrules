@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
         //person client
         Route::post('persons', 'PersonController@store');
         Route::get('persons',  'PersonController@index');
+        Route::put('persons/{id}', 'PersonController@update');
 
         //departaments and cities
         Route::get('departaments/', 'DepartamentController@index');

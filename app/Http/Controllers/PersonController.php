@@ -17,30 +17,33 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $persons = Person::join('clients', 'people.id', '=', 'clients.id')
+        $persons = DB::table('people as p')
+            ->join('clients', 'p.id', '=', 'clients.id')
+            ->join('cities as c', 'c.id', '=', 'p.city_id')
             ->select(
-                'people.id',
+                'p.id',
                 'type_document',
                 'document',
                 'prefix',
-                'name',
+                'p.name',
                 'surname',
                 'email',
                 'telephone',
                 'direction',
+                'p.departament_id',
                 'city_id',
+                'c.name as name_city',
                 'regimen_type',
                 'type_person',
                 'responsible_iva',
                 'business_name'
             )
-            ->orderBy('people.id', 'desc')->get();
+            ->orderBy('p.id', 'desc')->get();
         return $persons;
     }
 
     public function store(Request $request)
     {
-
         $person = new Person();
         $person->type_document = $request->type_document;
         $person->document = $request->document;
@@ -50,6 +53,7 @@ class PersonController extends Controller
         $person->surname = $request->surname;
         $person->email = $request->email;
         $person->telephone = $request->telephone;
+        $person->departament_id = $request->departament_id;
         $person->city_id = $request->city_id;
         $person->direction = $request->direction;
         $person->save();
@@ -73,7 +77,28 @@ class PersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::findOrFail($request->id);
+        $person = Person::findOrFail($client->id);
+
+        $person->type_document = $request->type_document;
+        $person->document = $request->document;
+        $person->prefix = $request->prefix;
+        $person->is_client = $request->is_client;
+        $person->name = $request->name;
+        $person->surname = $request->surname;
+        $person->email = $request->email;
+        $person->telephone = $request->telephone;
+        $person->departament_id = $request->departament_id;
+        $person->city_id = $request->city_id;
+        $person->direction = $request->direction;
+        $person->save();
+
+        $client->type_person = $request->type_person;
+        $client->regimen_type = $request->regimen_type;
+        $client->responsible_iva = $request->responsible_iva;
+        $client->business_name = $request->business_name;
+        $client->tributary_information = $request->tributary_information;
+        $client->save();
     }
 
     /**

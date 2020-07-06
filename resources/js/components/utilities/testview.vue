@@ -36,7 +36,7 @@
             <p v-if="row.direction">
               <i class="fi fi-map-marker-alt"></i>
               <strong>DIR:</strong>
-              {{ row.direction }}
+              {{ row.direction }} - {{ row.name_city }}
             </p>
             <p v-if="row.type_person">
               <i class="fi fi-male"></i>

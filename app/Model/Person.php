@@ -8,7 +8,7 @@ class Person extends Model
 {
     protected $fillable = [
         'type_document', 'document', 'prefix', 'is_client', 'name', 'surname',
-        'email', 'telephone', 'city_id', 'direction'
+        'email', 'telephone', 'departament_id', 'city_id', 'direction'
     ];
 
     public function client()

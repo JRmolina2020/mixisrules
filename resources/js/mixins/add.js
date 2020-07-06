@@ -36,6 +36,7 @@ module.exports = {
                                 $("#model").modal("hide");
                                 this.$store.dispatch(actions);
                                 this.clear();
+                                this.isLoading = false;
                             })
                             .catch(error => {
                                 console.log(error.response);
