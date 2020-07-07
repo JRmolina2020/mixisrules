@@ -2660,7 +2660,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_5__["mapState"])(["cities", "departaments"])),
   created: function created() {
     this.getdepartaments();
-    console.log(this.cities);
   },
   methods: {
     show: function show(row) {
@@ -2697,13 +2696,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.form.type_person = 1;
         this.form.regimen_type = 48;
         this.form.responsible_iva = 1;
-        console.log(this.form.type_person);
       } else {
         this.isnit = false;
         this.form.type_person = 2;
         this.form.regimen_type = 49;
         this.form.responsible_iva = 0;
-        console.log(this.form.type_person);
       }
     },
     clear: function clear() {
@@ -82331,19 +82328,19 @@ module.exports = {
     add: function add(id, actions) {
       var _this = this;
 
-      if (this.status == false) {
-        Swal.fire({
-          position: "center",
-          imageUrl: "https://lavchat-user.lavenirapps.co/assets/images/loading.gif",
-          imageWidth: 200,
-          imageHeight: 200,
-          title: "Cargando......",
-          showConfirmButton: false
-        });
-      }
-
       this.$validator.validate().then(function (valid) {
         if (valid) {
+          if (_this.status == false) {
+            Swal.fire({
+              position: "center",
+              imageUrl: "https://lavchat-user.lavenirapps.co/assets/images/loading.gif",
+              imageWidth: 200,
+              imageHeight: 200,
+              title: "Cargando......",
+              showConfirmButton: false
+            });
+          }
+
           if (id) {
             var url = "".concat(_this.url, "/").concat(id);
             axios.put(url, _this.form).then(function (response) {

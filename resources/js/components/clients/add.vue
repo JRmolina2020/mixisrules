@@ -446,7 +446,6 @@ export default {
     },
     created() {
         this.getdepartaments();
-        console.log(this.cities);
     },
     methods: {
         show(row) {
@@ -484,13 +483,11 @@ export default {
                 this.form.type_person = 1;
                 this.form.regimen_type = 48;
                 this.form.responsible_iva = 1;
-                console.log(this.form.type_person);
             } else {
                 this.isnit = false;
                 this.form.type_person = 2;
                 this.form.regimen_type = 49;
                 this.form.responsible_iva = 0;
-                console.log(this.form.type_person);
             }
         },
         clear() {

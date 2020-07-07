@@ -1,19 +1,19 @@
 module.exports = {
     methods: {
         add(id, actions) {
-            if (this.status == false) {
-                Swal.fire({
-                    position: "center",
-                    imageUrl:
-                        "https://lavchat-user.lavenirapps.co/assets/images/loading.gif",
-                    imageWidth: 200,
-                    imageHeight: 200,
-                    title: "Cargando......",
-                    showConfirmButton: false
-                });
-            }
             this.$validator.validate().then(valid => {
                 if (valid) {
+                    if (this.status == false) {
+                        Swal.fire({
+                            position: "center",
+                            imageUrl:
+                                "https://lavchat-user.lavenirapps.co/assets/images/loading.gif",
+                            imageWidth: 200,
+                            imageHeight: 200,
+                            title: "Cargando......",
+                            showConfirmButton: false
+                        });
+                    }
                     if (id) {
                         let url = `${this.url}/${id}`;
                         axios
