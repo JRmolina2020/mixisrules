@@ -13,6 +13,7 @@ export default new Vuex.Store({
         categories: [],
         products: [],
         persons: [],
+        providers: [],
         departaments: [],
         cities: [],
         status: false,
@@ -22,6 +23,7 @@ export default new Vuex.Store({
         urlcategories: "api/categories/",
         urlproducts: "api/products/",
         urlpersons: "api/persons/",
+        urlproviders: "api/providers/",
         urldepartaments: "api/departaments/",
         urlcities: "api/cities/"
     },
@@ -43,6 +45,9 @@ export default new Vuex.Store({
         },
         Personmutations(state, item) {
             state.persons = item;
+        },
+        Providermutations(state, item) {
+            state.providers = item;
         },
         Departamentmutations(state, item) {
             state.departaments = item;
@@ -101,6 +106,15 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get(`${state.urlpersons}`);
                 commit("Personmutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Provideractions({ commit, state }) {
+            try {
+                let response = await axios.get(`${state.urlproviders}`);
+                commit("Providermutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

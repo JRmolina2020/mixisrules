@@ -4,10 +4,10 @@
       <Loader></Loader>
     </div>
     <div v-else>
-      <Search-Item titleinput="Buscar clientes"></Search-Item>
+      <Search-Item titleinput="Buscar proveedores"></Search-Item>
       <div class="table-responsive mt-3">
         <v-table
-          :data="persons"
+          :data="providers"
           :currentPage.sync="currentPage"
           :filters="filters"
           :pageSize="4"
@@ -74,14 +74,14 @@ export default {
     };
   },
   computed: {
-    ...mapState(["filters", "persons", "status"])
+    ...mapState(["filters", "providers", "status"])
   },
   created() {
     this.getlist();
   },
   methods: {
     getlist() {
-      this.$store.dispatch("Personactions");
+      this.$store.dispatch("Provideractions");
     }
   }
 };

@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('clientes', function () {
         return view('clients.index');
     });
+    Route::get('proveedores', function () {
+        return view('providers.index');
+    });
 
     Route::prefix('api')->group(function () {
         Route::resource('users', 'UserController')->except([
@@ -65,7 +68,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('persons', 'PersonController@store');
         Route::get('persons',  'PersonController@index');
         Route::put('persons/{id}', 'PersonController@update')->where('id', '[0-9]+');
-
+        //person provider
+        Route::get('providers',  'PersonController@providersindex');
         //departaments and cities
         Route::get('departaments/', 'DepartamentController@index');
         Route::get('cities/{id}', 'CityController@index')->where('id', '[0-9]+');;

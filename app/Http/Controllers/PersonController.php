@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Person;
 use App\Model\Client;
+use App\Model\Provider;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -42,6 +43,34 @@ class PersonController extends Controller
             ->orderBy('p.id', 'desc')->get();
         return $persons;
     }
+    public function providersindex()
+    {
+        $persons = DB::table('people as p')
+            ->join('providers as pro', 'p.id', '=', 'pro.id')
+            ->join('cities as c', 'c.id', '=', 'p.city_id')
+            ->select(
+                'p.id',
+                'type_document',
+                'document',
+                'prefix',
+                'p.name',
+                'surname',
+                'email',
+                'telephone',
+                'direction',
+                'p.departament_id',
+                'city_id',
+                'c.name as name_city',
+                'company_name',
+                'services',
+                'landline',
+                'banking_entity',
+                'account_type',
+                'account_number'
+            )
+            ->orderBy('p.id', 'desc')->get();
+        return $persons;
+    }
 
     public function store(Request $request)
     {
@@ -60,16 +89,30 @@ class PersonController extends Controller
             $person->city_id = $request->city_id;
             $person->direction = $request->direction;
             $person->save();
-            $client = new Client();
-            $client->type_person = $request->type_person;
-            $client->regimen_type = $request->regimen_type;
-            $client->responsible_iva = $request->responsible_iva;
-            $client->business_name = $request->business_name;
-            $client->tributary_information = $request->tributary_information;
-            $client->id = $person->id;
-            $client->save();
-            DB::commit();
-            return response()->json(['message' => 'El cliente ha sido registrado'], 200);
+            if ($request->is_client == 1) {
+                $client = new Client();
+                $client->type_person = $request->type_person;
+                $client->regimen_type = $request->regimen_type;
+                $client->responsible_iva = $request->responsible_iva;
+                $client->business_name = $request->business_name;
+                $client->tributary_information = $request->tributary_information;
+                $client->id = $person->id;
+                $client->save();
+                DB::commit();
+                return response()->json(['message' => 'El cliente ha sido registrado'], 200);
+            } else {
+                $provider = new Provider();
+                $provider->company_name = $request->company_name;
+                $provider->services = $request->services;
+                $provider->landline = $request->landline;
+                $provider->banking_entity = $request->banking_entity;
+                $provider->account_type = $request->account_type;
+                $provider->account_number = $request->account_number;
+                $provider->id = $person->id;
+                $provider->save();
+                DB::commit();
+                return response()->json(['message' => 'El proveedor ha sido registrado'], 200);
+            }
         } catch (Exception $e) {
             DB::rollBack();
         }
@@ -87,8 +130,13 @@ class PersonController extends Controller
     {
         try {
             DB::beginTransaction();
-            $client = Client::findOrFail($request->id);
-            $person = Person::findOrFail($client->id);
+            if ($request->is_client) {
+                $client = Client::findOrFail($request->id);
+                $person = Person::findOrFail($client->id);
+            } else {
+                $provider = Provider::findOrFail($request->id);
+                $person = Person::findOrFail($provider->id);
+            }
             $person->type_document = $request->type_document;
             $person->document = $request->document;
             $person->prefix = $request->prefix;
@@ -101,14 +149,27 @@ class PersonController extends Controller
             $person->city_id = $request->city_id;
             $person->direction = $request->direction;
             $person->save();
-            $client->type_person = $request->type_person;
-            $client->regimen_type = $request->regimen_type;
-            $client->responsible_iva = $request->responsible_iva;
-            $client->business_name = $request->business_name;
-            $client->tributary_information = $request->tributary_information;
-            $client->save();
-            DB::commit();
-            return response()->json(['message' => 'El cliente ha sido modificado'], 201);
+            if ($request->is_client) {
+                $client->type_person = $request->type_person;
+                $client->regimen_type = $request->regimen_type;
+                $client->responsible_iva = $request->responsible_iva;
+                $client->business_name = $request->business_name;
+                $client->tributary_information = $request->tributary_information;
+                $client->save();
+                DB::commit();
+                return response()->json(['message' => 'El cliente ha sido modificado'], 201);
+            } else {
+                $provider->company_name = $request->company_name;
+                $provider->services = $request->services;
+                $provider->landline = $request->landline;
+                $provider->banking_entity = $request->banking_entity;
+                $provider->account_type = $request->account_type;
+                $provider->account_number = $request->account_number;
+                $provider->id = $person->id;
+                $provider->save();
+                DB::commit();
+                return response()->json(['message' => 'El proveedor ha sido modificado'], 201);
+            }
         } catch (Exception $e) {
             DB::rollBack();
         }

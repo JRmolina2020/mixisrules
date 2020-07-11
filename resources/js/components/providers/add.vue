@@ -1,14 +1,14 @@
 <template>
   <div>
     <Modal-Resource v-on:clear="clear" title="Registro de roles">
-      <section v-if="!form.id" slot="title">Registro de clientes</section>
-      <section v-else slot="title">Editar clientes</section>
+      <section v-if="!form.id" slot="title">Registro de proveedores</section>
+      <section v-else slot="title">Editar provedores</section>
       <section slot="closebtn">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </section>
-      <section slot="titlebutton">Registrar clientes</section>
+      <section slot="titlebutton">Registrar proveedores</section>
       <section slot="body">
         <form method="POST" @submit.prevent="add(form.id, action)" autocomplete="off">
           <form-wizard ref="wizard" shape="tab" title subtitle color="#0982BB">
@@ -204,7 +204,7 @@
               <div class="row">
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <label for>Nombre del negocio</label>
+                    <label for>Nombre de la empresa</label>
                     <input
                       type="text"
                       v-validate="'required|max:30|min:3'"
@@ -213,28 +213,188 @@
                                                 'is-invalid':
                                                     submitted &&
                                                     errors.has(
-                                                        'nombre del negocio'
+                                                        'nombre de la empresa'
                                                     )
                                             }"
-                      placeholder="Nombre del negocio"
-                      v-model="form.business_name"
-                      name="nombre del negocio"
+                      placeholder="Nombre de la empresa"
+                      v-model="form.company_name"
+                      name="nombre de la empresa"
                     />
                     <div
                       v-if="
                                                 submitted &&
                                                     errors.has(
-                                                        'nombre del negocio'
+                                                        'nombre de la empresa'
                                                     )
                                             "
                       class="invalid-feedback"
                     >
                       {{
                       errors.first(
-                      "nombre del negocio"
+                      "nombre de la empresa"
                       )
                       }}
                     </div>
+                  </div>
+                </div>
+              </div>
+            </tab-content>
+            <tab-content title="Empresa" icon="fi fi-keyboard">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for>Tipo de servicio</label>
+                    <input
+                      type="text"
+                      v-validate="'required|max:30|min:3'"
+                      class="form-control form-control-sm"
+                      :class="{
+                                                'is-invalid':
+                                                    submitted &&
+                                                    errors.has(
+                                                        'servicio de la empresa'
+                                                    )
+                                            }"
+                      placeholder="Servicio de la empresa"
+                      v-model="form.services"
+                      name="servicio de la empresa"
+                    />
+                    <div
+                      v-if="
+                                                submitted &&
+                                                    errors.has(
+                                                        'servicio de la empresa'
+                                                    )
+                                            "
+                      class="invalid-feedback"
+                    >
+                      {{
+                      errors.first(
+                      "servicio de la empresa"
+                      )
+                      }}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for>Telefono fijo</label>
+                    <input
+                      type="number"
+                      v-validate="
+                                                'between:1,10000000000'
+                                            "
+                      class="form-control form-control-sm"
+                      :class="{
+                                                'is-invalid':
+                                                    submitted &&
+                                                    errors.has('telefono fijo')
+                                            }"
+                      v-model="form.landline"
+                      name="telefono fijo"
+                    />
+                    <div
+                      v-if="
+                                                submitted &&
+                                                    errors.has('telefono fijo')
+                                            "
+                      class="invalid-feedback"
+                    >{{ errors.first("telefono fijo") }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for>Entidad bancaria</label>
+                    <select
+                      class="form-control form-control-sm"
+                      name="entidad"
+                      v-model="form.banking_entity"
+                      :class="{
+                                                'is-invalid':
+                                                    submitted &&
+                                                    errors.has('entidad')
+                                            }"
+                      v-validate="'required|'"
+                    >
+                      <option value="Banco agrario">Banco agrario</option>
+                      <option value="Banco AV villas">Banco AV Villas</option>
+                      <option value="Banco caja social">Banco caja social</option>
+                      <option value="Banco de occidente">Banco de occidente</option>
+                      <option value="Bancolombia">Bancolombia</option>
+                      <option value="Bancolombia a la mano">Bancolombia a la mano</option>
+                      <option value="Banco popular">Banco Popular</option>
+                      <option value="BBVA">BBVA</option>
+                      <option value="Banco bogóta">Banco de bogóta</option>
+                      <option value="Colpatria">Colpatria</option>
+                      <option value="Davivienda">Davivienda</option>
+                      <option value="Nequi">Nequi</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                    <div
+                      v-if="
+                                                submitted &&
+                                                    errors.has('entidad')
+                                            "
+                      class="invalid-feedback"
+                    >{{ errors.first("entidad") }}</div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for>Tipo de cuenta</label>
+                    <select
+                      class="form-control form-control-sm"
+                      name="tipo de cuenta"
+                      v-model="form.account_type"
+                      :class="{
+                                                'is-invalid':
+                                                    submitted &&
+                                                    errors.has('tipo de cuenta')
+                                            }"
+                      v-validate="'required|'"
+                    >
+                      <option value="C.corriente">C.corriente</option>
+                      <option value="C.ahorro">C.ahorro</option>
+                      <option value="Banco agrario">Cuenta de nómina</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                    <div
+                      v-if="
+                                                submitted &&
+                                                    errors.has('tipo de cuenta')
+                                            "
+                      class="invalid-feedback"
+                    >{{ errors.first("tipo de cuenta") }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label for>Número de cuenta</label>
+                    <input
+                      type="number"
+                      v-validate="
+                                                'between:1,10000000000'
+                                            "
+                      class="form-control form-control-sm"
+                      :class="{
+                                                'is-invalid':
+                                                    submitted &&
+                                                    errors.has('número de cuenta')
+                                            }"
+                      v-model="form.account_number"
+                      name="número de cuenta"
+                    />
+                    <div
+                      v-if="
+                                                submitted &&
+                                                    errors.has('número de cuenta')
+                                            "
+                      class="invalid-feedback"
+                    >{{ errors.first("número de cuenta") }}</div>
                   </div>
                 </div>
               </div>
@@ -365,7 +525,7 @@ export default {
   },
   data() {
     return {
-      action: "Personactions",
+      action: "Provideractions",
       url: "api/persons",
       status: false,
       submitted: true,
@@ -376,7 +536,7 @@ export default {
         type_document: "",
         document: "",
         prefix: "",
-        is_client: 1,
+        is_client: 0,
         name: "",
         surname: "",
         email: "",
@@ -384,11 +544,12 @@ export default {
         departament_id: "",
         city_id: "",
         direction: "",
-        type_person: "",
-        regimen_type: "",
-        responsible_iva: "",
-        business_name: "",
-        tributary_information: "ZZZ"
+        company_name: "",
+        services: "",
+        landline: "",
+        banking_entity: "",
+        account_type: "",
+        account_number: ""
       }
     };
   },
@@ -404,17 +565,19 @@ export default {
       this.form.name = row.name;
       this.form.surname = row.surname;
       this.form.type_document = row.type_document;
-      this.form.type_person = row.type_person;
-      this.form.regimen_type = row.regimen_type;
-      this.form.responsible_iva = row.responsible_iva;
       this.form.document = row.document;
       this.form.prefix = row.prefix;
       this.form.email = row.email;
       this.form.telephone = row.telephone;
       this.form.departament_id = row.departament_id;
       this.form.city_id = row.city_id;
-      this.form.business_name = row.business_name;
       this.form.direction = row.direction;
+      this.form.company_name = row.company_name;
+      this.form.services = row.services;
+      this.form.landline = row.landline;
+      this.form.banking_entity = row.banking_entity;
+      this.form.account_type = row.account_type;
+      this.form.account_number = row.account_number;
       this.getdepartaments;
       this.getcities(this.form.departament_id);
       this.$refs.wizard.changeTab(0, 0);
@@ -431,14 +594,8 @@ export default {
     nitstatus() {
       if (this.form.type_document == "NIT") {
         this.isnit = true;
-        this.form.type_person = 1;
-        this.form.regimen_type = 48;
-        this.form.responsible_iva = 1;
       } else {
         this.isnit = false;
-        this.form.type_person = 2;
-        this.form.regimen_type = 49;
-        this.form.responsible_iva = 0;
       }
     },
     clear() {
@@ -453,7 +610,12 @@ export default {
       this.form.departament_id = null;
       this.form.city_id = null;
       this.form.direction = null;
-      this.form.business_name = null;
+      this.form.company_name = null;
+      this.form.services = null;
+      this.form.landline = null;
+      this.form.banking_entity = null;
+      this.form.account_type = null;
+      this.form.account_number = null;
       this.$validator.reset();
       this.$refs.wizard.changeTab(0, 0);
       this.status = false;
