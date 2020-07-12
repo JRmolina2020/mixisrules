@@ -7,17 +7,20 @@ import auth from "./mixins/Auth.js";
 import LaravelPermissionToVueJS from "laravel-permission-to-vuejs";
 import Swal from "sweetalert2";
 window.Swal = Swal;
-
+import VueCurrencyInput from "vue-currency-input";
+import VueCurrencyFilter from "vue-currency-filter";
 //start validate
 import es from "vee-validate/dist/locale/es";
 import VeeValidate, { Validator } from "vee-validate";
-Vue.use(VeeValidate);
-Validator.localize("es", es);
 //end validate
 //end import
 //vue use
+Vue.use(VueCurrencyInput);
+Vue.use(VeeValidate);
+Validator.localize("es", es);
 Vue.use(SmartTable);
 Vue.use(LaravelPermissionToVueJS);
+Vue.use(VueCurrencyFilter);
 Vue.mixin(auth);
 
 //end use
@@ -37,6 +40,7 @@ Vue.component(
 Vue.component("products", require("./components/products/index.vue").default);
 Vue.component("clients", require("./components/clients/index.vue").default);
 Vue.component("providers", require("./components/providers/index.vue").default);
+Vue.component("expenses", require("./components/expenses/index.vue").default);
 const app = new Vue({
     el: "#app",
     store

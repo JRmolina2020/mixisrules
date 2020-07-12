@@ -11,6 +11,8 @@ class Person extends Model
         'email', 'telephone', 'departament_id', 'city_id', 'direction'
     ];
 
+
+
     public function client()
     {
         return $this->hasOne('App\Model\Client');

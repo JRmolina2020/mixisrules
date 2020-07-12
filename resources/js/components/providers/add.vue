@@ -282,7 +282,7 @@
                     <input
                       type="number"
                       v-validate="
-                                                'between:1,10000000000'
+                                               'required|between:1,10000000000'
                                             "
                       class="form-control form-control-sm"
                       :class="{
@@ -377,7 +377,7 @@
                     <input
                       type="number"
                       v-validate="
-                                                'between:1,10000000000'
+                                              'required|between:1,10000000000'
                                             "
                       class="form-control form-control-sm"
                       :class="{
@@ -489,7 +489,6 @@
                 </div>
               </div>
             </tab-content>
-
             <button
               type="submit"
               :hidden="errors.any()"
@@ -546,10 +545,10 @@ export default {
         direction: "",
         company_name: "",
         services: "",
-        landline: "",
+        landline: "55555",
         banking_entity: "",
         account_type: "",
-        account_number: ""
+        account_number: "11111"
       }
     };
   },
@@ -612,10 +611,10 @@ export default {
       this.form.direction = null;
       this.form.company_name = null;
       this.form.services = null;
-      this.form.landline = null;
+      this.form.landline = "55555";
       this.form.banking_entity = null;
       this.form.account_type = null;
-      this.form.account_number = null;
+      this.form.account_number = "11111";
       this.$validator.reset();
       this.$refs.wizard.changeTab(0, 0);
       this.status = false;

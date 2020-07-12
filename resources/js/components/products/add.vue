@@ -104,10 +104,14 @@
                         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for>Precio de venta</label>
-                                <input
-                                    type="number"
-                                    v-validate="'required|between:0,100000000'"
+                                <currency-input
+                                    v-validate="'|required'"
                                     class="form-control form-control-sm"
+                                    v-currency="{
+                                        currency: 'USD',
+                                        precision: 0,
+                                        locale: 'en'
+                                    }"
                                     :class="{
                                         'is-invalid':
                                             submitted && errors.has('precio')

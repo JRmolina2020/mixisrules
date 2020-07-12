@@ -36,6 +36,10 @@ Route::group(['middleware' => 'auth'], function () {
         return view('providers.index');
     });
 
+    Route::get('gastos', function () {
+        return view('expenses.index');
+    });
+
     Route::prefix('api')->group(function () {
         Route::resource('users', 'UserController')->except([
             'show', 'create', 'edit'
@@ -73,5 +77,10 @@ Route::group(['middleware' => 'auth'], function () {
         //departaments and cities
         Route::get('departaments/', 'DepartamentController@index');
         Route::get('cities/{id}', 'CityController@index')->where('id', '[0-9]+');;
+        //expenses
+        Route::get('expenses/', 'ExpenseController@index');
+        Route::get('expenses/one', 'ExpenseController@indexOne');
+        Route::post('expenses/', 'ExpenseController@store');
+        Route::put('expenses/{id}', 'ExpenseController@update')->where('id', '[0-9]+');
     });
 });

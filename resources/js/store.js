@@ -16,6 +16,7 @@ export default new Vuex.Store({
         providers: [],
         departaments: [],
         cities: [],
+        expenses: [],
         status: false,
         urlusers: "api/users/",
         urlroles: "api/roles/",
@@ -25,7 +26,8 @@ export default new Vuex.Store({
         urlpersons: "api/persons/",
         urlproviders: "api/providers/",
         urldepartaments: "api/departaments/",
-        urlcities: "api/cities/"
+        urlcities: "api/cities/",
+        urlexpenses: "api/expenses/"
     },
     mutations: {
         Usermutations(state, item) {
@@ -54,6 +56,9 @@ export default new Vuex.Store({
         },
         Citymutations(state, item) {
             state.cities = item;
+        },
+        Expensemutations(state, item) {
+            state.expenses = item;
         }
     },
     actions: {
@@ -133,6 +138,24 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get(`${state.urlcities}${id}`);
                 commit("Citymutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Expenseactions({ commit, state }, id) {
+            try {
+                let response = await axios.get(`${state.urlexpenses}`);
+                commit("Expensemutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async ExpenseOneactions({ commit, state }, id) {
+            try {
+                let response = await axios.get(`${state.urlexpenses}one`);
+                commit("Expensemutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

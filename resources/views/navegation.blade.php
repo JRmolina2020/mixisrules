@@ -94,6 +94,12 @@
           </li>
       </ul>
     </li> 
+    <li class="nav-item">
+      <a href="{{ url('gastos') }}" class="nav-link">
+        <i class="fi fi-file-1"></i>
+        <p>Gastos</p>
+      </a>
+    </li>
     <li class="nav-item has-treeview">
       <a class="nav-link" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
