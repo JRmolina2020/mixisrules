@@ -175,6 +175,9 @@
                             {{ errors.first("descripción") }}
                         </div>
                     </div>
+                    <div v-if="form.code" class="mx-auto" style="width: 100px;">
+                        <barcode :value="form.code"></barcode>
+                    </div>
 
                     <button
                         :hidden="errors.any()"

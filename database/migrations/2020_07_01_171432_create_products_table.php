@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock')->default(0);
             $table->longText('description');
             $table->date('expiration')->nullable();
-            $table->string('unit')->nullable();
+            $table->string('unit', 30)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

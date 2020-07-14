@@ -7,6 +7,7 @@ import auth from "./mixins/Auth.js";
 import LaravelPermissionToVueJS from "laravel-permission-to-vuejs";
 import Swal from "sweetalert2";
 window.Swal = Swal;
+import VueBarcode from "@chenfengyuan/vue-barcode";
 import VueCurrencyInput from "vue-currency-input";
 import VueCurrencyFilter from "vue-currency-filter";
 //start validate
@@ -22,6 +23,7 @@ Vue.use(SmartTable);
 Vue.use(LaravelPermissionToVueJS);
 Vue.use(VueCurrencyFilter);
 Vue.mixin(auth);
+Vue.component(VueBarcode.name, VueBarcode);
 
 //end use
 Vue.component("login", require("./components/login.vue").default);
