@@ -21,6 +21,8 @@ class PermissionSeeder extends Seeder
         $permission_array = [];
         array_push($permission_array, Permission::create(['name' => 'Administrador de seguridad']));
         array_push($permission_array, Permission::create(['name' => 'create_users']));
+        array_push($permission_array, Permission::create(['name' => 'ver gastos generales']));
+        array_push($permission_array, Permission::create(['name' => 'registrar gastos']));
         $adminTo->assignRole($role->id);
         $role->syncPermissions($permission_array);
     }

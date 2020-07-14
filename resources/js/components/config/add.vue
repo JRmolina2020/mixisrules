@@ -2,9 +2,9 @@
     <div>
         <Modal-Resource v-on:clear="clear" title="Registro de medidas">
             <section v-if="!form.id" slot="title">
-                Registro de categoria
+                Registro de medidas
             </section>
-            <section v-else slot="title">Editar categoria</section>
+            <section v-else slot="title">Editar medidas</section>
             <section slot="closebtn">
                 <button
                     type="button"
@@ -15,7 +15,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </section>
-            <section slot="titlebutton">Registrar categoria</section>
+            <section slot="titlebutton">Registrar medidas</section>
             <section slot="body">
                 <form
                     method="POST"
@@ -23,7 +23,7 @@
                     autocomplete="off"
                 >
                     <div class="form-group">
-                        <label for>Nombre</label>
+                        <label for>Nombre de la medida</label>
                         <input
                             type="text"
                             v-validate="'required|max:30|min:3'"
@@ -31,7 +31,7 @@
                             :class="{
                                 'is-invalid': submitted && errors.has('nombre')
                             }"
-                            placeholder="Nombre de la categoria a registrar"
+                            placeholder="Nombre de la medida a registrar"
                             v-model="form.name"
                             name="nombre"
                         />
@@ -80,8 +80,8 @@ export default {
     data() {
         return {
             status: false,
-            action: "Categorieactions",
-            url: "api/categories",
+            action: "Measureactions",
+            url: "api/measures",
             submitted: true,
             form: {
                 id: null,

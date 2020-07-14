@@ -29,7 +29,7 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        $categories = Categorie::create([
+        Categorie::create([
             'name' => $request['name'],
         ]);
         return response()->json(['message' => 'La categoria ha sido creada'], 200);

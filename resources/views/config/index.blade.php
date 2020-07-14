@@ -2,7 +2,7 @@
 @section('measure')
 <div class="col-lg-6 col-sm-12 col-xs-12 col-md-12 principal">
 @endsection
-@section('titlepanel','Categoria de productos')
+@section('titlepanel','Configuraciones')
 @section('content')
-<categories></categories>
+<measures></measures>
 @endsection

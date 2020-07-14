@@ -128,6 +128,33 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label>Fecha de vencimiento</label>
+                                <input
+                                    v-model="form.expiration"
+                                    class="form-control form-control-sm"
+                                    type="date"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for=""> Unidad de medida</label>
+                                <select
+                                    class="form-control form-control-sm"
+                                    v-model="form.unit"
+                                >
+                                    <option
+                                        v-for="(item, index) in measures"
+                                        :key="index"
+                                        >{{ item.name }}</option
+                                    >
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for>Descripción</label>
                         <textarea
@@ -195,20 +222,23 @@ export default {
                 name: null,
                 categorie_id: null,
                 sale_price: 0,
-                description: null
+                description: null,
+                expiration: null,
+                unit: "und"
             }
         };
     },
     computed: {
-        ...mapState(["categories"])
+        ...mapState(["categories", "measures"])
     },
     created() {
-        this.getlistcategories();
+        this.getlistData();
     },
 
     methods: {
-        getlistcategories() {
+        getlistData() {
             this.$store.dispatch("Categorieactions");
+            this.$store.dispatch("Measureactions");
         },
         show(row) {
             this.form.categorie_id = row.idc;
@@ -216,6 +246,8 @@ export default {
             this.form.name = row.name;
             this.form.sale_price = row.sale_price;
             this.form.description = row.description;
+            this.form.expiration = row.expiration;
+            this.form.unit = row.unit;
             this.form.id = row.id;
             this.status = false;
             $("#model").modal("show");
@@ -227,6 +259,8 @@ export default {
             this.form.name = null;
             this.form.sale_price = 0;
             this.form.description = null;
+            this.form.expiration = null;
+            this.formunit = "und";
             this.status = false;
             this.$validator.reset();
         }

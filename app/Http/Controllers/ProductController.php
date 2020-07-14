@@ -24,6 +24,8 @@ class ProductController extends Controller
                 'products.sale_price',
                 'products.stock',
                 'products.description',
+                'products.expiration',
+                'products.unit',
                 'products.status',
                 'categories.name as name_categorie',
                 'categories.id as idc'
@@ -40,13 +42,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $products = Product::create([
+        Product::create([
             'categorie_id' => $request['categorie_id'],
             'code' => $request['code'],
             'name' => $request['name'],
             'type_product' => $request['type_product'],
             'sale_price' => $request['sale_price'],
             'description' => $request['description'],
+            'expiration' => $request['expiration'],
+            'unit' => $request['unit']
         ]);
         return response()->json(['message' => 'El producto ha sido creado'], 200);
     }
@@ -61,13 +65,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $products = Product::find($id, ['id', 'code', 'name', 'sale_price', 'description']);
+        $products = Product::find($id, ['id', 'code', 'name', 'sale_price', 'description', 'expiration', 'unit']);
         $products->fill([
             'categorie_id' => $request['categorie_id'],
             'code' => request('code'),
             'name' => request('name'),
             'sale_price' => request('sale_price'),
             'description' => request('description'),
+            'expiration' => request('expiration'),
+            'unit' => request('unit')
         ])->save();
         return response()->json(['message' => 'El producto ha sido modificado'], 201);
     }

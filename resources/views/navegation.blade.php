@@ -100,6 +100,25 @@
         <p>Gastos</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="fi fi-bell"></i>
+        <p>
+        Configuraciones
+          <i class="right fi fi-more-v-a"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('configuraciones') }}" class="nav-link">
+              <i class="fi fi-calculator"></i>
+              <p>
+                Unidad de medidas
+              </p>
+            </a>
+          </li>
+      </ul>
+    </li>
     <li class="nav-item has-treeview">
       <a class="nav-link" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" href="{{ route('logout') }}">

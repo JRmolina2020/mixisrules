@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->decimal('sale_price', 11, 0);
             $table->integer('stock')->default(0);
             $table->longText('description');
+            $table->date('expiration')->nullable();
+            $table->string('unit')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

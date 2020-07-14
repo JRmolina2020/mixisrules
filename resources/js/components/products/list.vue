@@ -21,6 +21,8 @@
                             <th>Categoria</th>
                             <th>Precio</th>
                             <th>Existencias</th>
+                            <th>Vencimiento</th>
+                            <th>Unit.medida</th>
                             <th>Estado</th>
                             <th>Opciones</th>
                         </tr>
@@ -37,6 +39,13 @@
                                 >
                             </td>
                             <td v-else>{{ row.stock }}</td>
+                            <td v-if="row.expiration == null">
+                                <span class="badge bg-success">
+                                    Sin vencimiento</span
+                                >
+                            </td>
+                            <td v-else>{{ row.expiration }}</td>
+                            <td>{{ row.unit }}</td>
                             <td>
                                 <button
                                     type="button"

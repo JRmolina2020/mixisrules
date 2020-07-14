@@ -17,17 +17,19 @@ export default new Vuex.Store({
         departaments: [],
         cities: [],
         expenses: [],
+        measures: [],
         status: false,
-        urlusers: "api/users/",
-        urlroles: "api/roles/",
-        urlpermissions: "api/permissions/",
-        urlcategories: "api/categories/",
-        urlproducts: "api/products/",
-        urlpersons: "api/persons/",
-        urlproviders: "api/providers/",
-        urldepartaments: "api/departaments/",
-        urlcities: "api/cities/",
-        urlexpenses: "api/expenses/"
+        urlusers: "api/users",
+        urlroles: "api/roles",
+        urlpermissions: "api/permissions",
+        urlcategories: "api/categories",
+        urlproducts: "api/products",
+        urlpersons: "api/persons",
+        urlproviders: "api/providers",
+        urldepartaments: "api/departaments",
+        urlcities: "api/cities",
+        urlexpenses: "api/expenses",
+        urlmeasures: "api/measures"
     },
     mutations: {
         Usermutations(state, item) {
@@ -59,6 +61,9 @@ export default new Vuex.Store({
         },
         Expensemutations(state, item) {
             state.expenses = item;
+        },
+        Measuremutations(state, item) {
+            state.measures = item;
         }
     },
     actions: {
@@ -136,7 +141,7 @@ export default new Vuex.Store({
         },
         async Cityactions({ commit, state }, id) {
             try {
-                let response = await axios.get(`${state.urlcities}${id}`);
+                let response = await axios.get(`${state.urlcities}/${id}`);
                 commit("Citymutations", response.data);
                 state.status = true;
             } catch (error) {
@@ -154,8 +159,17 @@ export default new Vuex.Store({
         },
         async ExpenseOneactions({ commit, state }, id) {
             try {
-                let response = await axios.get(`${state.urlexpenses}one`);
+                let response = await axios.get(`${state.urlexpenses}/one`);
                 commit("Expensemutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Measureactions({ commit, state }, id) {
+            try {
+                let response = await axios.get(`${state.urlmeasures}`);
+                commit("Measuremutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);
