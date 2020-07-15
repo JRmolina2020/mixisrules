@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
                             <div class="form-group">
-                                <label for="">Categoria</label>
+                                <label for>Categoria</label>
                                 <select
                                     class="form-control form-control-sm"
                                     :class="{
@@ -89,9 +89,8 @@
                                         v-for="(item, index) in categories"
                                         :value="item.id"
                                         :key="index"
+                                        >{{ item.name }}</option
                                     >
-                                        {{ item.name }}
-                                    </option>
                                 </select>
                                 <div
                                     v-if="submitted && errors.has('categoria')"
@@ -141,7 +140,7 @@
                         </div>
                         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6">
                             <div class="form-group">
-                                <label for=""> Unidad de medida</label>
+                                <label for>Unidad de medida</label>
                                 <select
                                     class="form-control form-control-sm"
                                     v-model="form.unit"
@@ -174,9 +173,6 @@
                         >
                             {{ errors.first("descripción") }}
                         </div>
-                    </div>
-                    <div v-if="form.code" class="mx-auto" style="width: 100px;">
-                        <barcode :value="form.code"></barcode>
                     </div>
 
                     <button

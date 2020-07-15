@@ -7669,10 +7669,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -7741,6 +7737,95 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/products/barcode.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/products/barcode.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "barcodebarra",
+  props: {
+    row: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    increment: function increment() {
+      var number = this.form.cant;
+      return number;
+    }
+  },
+  data: function data() {
+    return {
+      output: null,
+      form: {
+        cant: 0
+      }
+    };
+  },
+  methods: {
+    print: function print() {
+      this.$htmlToPaper("printMe");
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/products/index.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/products/index.vue?vue&type=script&lang=js& ***!
@@ -7785,10 +7870,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_search__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/search */ "./resources/js/components/utilities/search.vue");
-/* harmony import */ var _utilities_loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/loader */ "./resources/js/components/utilities/loader.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/status */ "./resources/js/mixins/status.js");
-/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mixins_status__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _barcode__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./barcode */ "./resources/js/components/products/barcode.vue");
+/* harmony import */ var _utilities_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilities/loader */ "./resources/js/components/utilities/loader.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/status */ "./resources/js/mixins/status.js");
+/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mixins_status__WEBPACK_IMPORTED_MODULE_4__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -7889,6 +7975,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+
 
 
 
@@ -7897,9 +7986,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "list",
   components: {
     SearchItem: _utilities_search__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Loader: _utilities_loader__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Loader: _utilities_loader__WEBPACK_IMPORTED_MODULE_2__["default"],
+    BarCodebarra: _barcode__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  mixins: [_mixins_status__WEBPACK_IMPORTED_MODULE_3___default.a],
+  mixins: [_mixins_status__WEBPACK_IMPORTED_MODULE_4___default.a],
   data: function data() {
     return {
       prefijo: "El producto",
@@ -7907,7 +7997,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       totalPages: 0
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(["filters", "products", "status", "urlproducts"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])(["filters", "products", "status", "urlproducts"])),
   created: function created() {
     this.getlist();
   },
@@ -65954,13 +66044,7 @@ var render = function() {
                             return _c(
                               "option",
                               { key: index, domProps: { value: item.id } },
-                              [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(item.name) +
-                                    "\n                                "
-                                )
-                              ]
+                              [_vm._v(_vm._s(item.name))]
                             )
                           }),
                           0
@@ -66085,7 +66169,7 @@ var render = function() {
                     [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "" } }, [
-                          _vm._v(" Unidad de medida")
+                          _vm._v("Unidad de medida")
                         ]),
                         _vm._v(" "),
                         _c(
@@ -66178,18 +66262,6 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _vm.form.code
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "mx-auto",
-                        staticStyle: { width: "100px" }
-                      },
-                      [_c("barcode", { attrs: { value: _vm.form.code } })],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -66217,6 +66289,120 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/products/barcode.vue?vue&type=template&id=00333ea0&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/products/barcode.vue?vue&type=template&id=00333ea0& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-default btn-sm",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#model" + _vm.row.id
+        }
+      },
+      [_c("i", { staticClass: "fi fi-shopping-barcode" })]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "model" + _vm.row.id,
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modelTitleId",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _vm._v("nombre del producto : " + _vm._s(_vm.row.name))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "" } }, [_vm._v("Cantidad")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.number",
+                        value: _vm.form.cant,
+                        expression: "form.cant",
+                        modifiers: { number: true }
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: { type: "number" },
+                    domProps: { value: _vm.form.cant },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "cant", _vm._n($event.target.value))
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "form-text text-muted" }, [
+                    _vm._v("cantidad de impresiones")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.increment, function(index) {
+                    return _c(
+                      "div",
+                      { key: index, staticClass: "col-lg-3" },
+                      [_c("barcode", { attrs: { value: _vm.row.code } })],
+                      1
+                    )
+                  }),
+                  0
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -66337,7 +66523,9 @@ var render = function() {
                                           _c("i", {
                                             staticClass: "fi fi-frowning"
                                           }),
-                                          _vm._v(" Agotado")
+                                          _vm._v(
+                                            " 0\n                            "
+                                          )
                                         ]
                                       )
                                     ])
@@ -66345,15 +66533,7 @@ var render = function() {
                                 _vm._v(" "),
                                 row.expiration == null
                                   ? _c("td", [
-                                      _c(
-                                        "span",
-                                        { staticClass: "badge bg-success" },
-                                        [
-                                          _vm._v(
-                                            "\n                                Sin vencimiento"
-                                          )
-                                        ]
-                                      )
+                                      _c("i", { staticClass: "fi fi-check" })
                                     ])
                                   : _c("td", [_vm._v(_vm._s(row.expiration))]),
                                 _vm._v(" "),
@@ -66404,7 +66584,13 @@ var render = function() {
                                       })
                                     ]
                                   )
-                                ])
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  [_c("BarCodebarra", { attrs: { row: row } })],
+                                  1
+                                )
                               ])
                             }),
                             0
@@ -66424,7 +66610,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", [_vm._v("Precio")]),
                         _vm._v(" "),
-                        _c("th", [_vm._v("Existencias")]),
+                        _c("th", [_vm._v("Stock")]),
                         _vm._v(" "),
                         _c("th", [_vm._v("Vencimiento")]),
                         _vm._v(" "),
@@ -66432,7 +66618,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", [_vm._v("Estado")]),
                         _vm._v(" "),
-                        _c("th", [_vm._v("Opciones")])
+                        _c("th", [_vm._v("Opciones")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("barra")])
                       ])
                     ])
                   ]
@@ -89916,6 +90104,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_template_id_c5224b7e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_add_vue_vue_type_template_id_c5224b7e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/products/barcode.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/products/barcode.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _barcode_vue_vue_type_template_id_00333ea0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./barcode.vue?vue&type=template&id=00333ea0& */ "./resources/js/components/products/barcode.vue?vue&type=template&id=00333ea0&");
+/* harmony import */ var _barcode_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./barcode.vue?vue&type=script&lang=js& */ "./resources/js/components/products/barcode.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _barcode_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _barcode_vue_vue_type_template_id_00333ea0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _barcode_vue_vue_type_template_id_00333ea0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/products/barcode.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/products/barcode.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/products/barcode.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_barcode_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./barcode.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/products/barcode.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_barcode_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/products/barcode.vue?vue&type=template&id=00333ea0&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/products/barcode.vue?vue&type=template&id=00333ea0& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_barcode_vue_vue_type_template_id_00333ea0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./barcode.vue?vue&type=template&id=00333ea0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/products/barcode.vue?vue&type=template&id=00333ea0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_barcode_vue_vue_type_template_id_00333ea0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_barcode_vue_vue_type_template_id_00333ea0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -20,11 +20,12 @@
                             <th>Nombre</th>
                             <th>Categoria</th>
                             <th>Precio</th>
-                            <th>Existencias</th>
+                            <th>Stock</th>
                             <th>Vencimiento</th>
                             <th>Unit.medida</th>
                             <th>Estado</th>
                             <th>Opciones</th>
+                            <th>barra</th>
                         </tr>
                     </thead>
                     <tbody slot="body" slot-scope="{ displayData }">
@@ -35,14 +36,12 @@
                             <td>${{ row.sale_price | currency }}</td>
                             <td v-if="row.stock == 0">
                                 <span class="badge bg-danger">
-                                    <i class="fi fi-frowning"></i> Agotado</span
-                                >
+                                    <i class="fi fi-frowning"></i> 0
+                                </span>
                             </td>
                             <td v-else>{{ row.stock }}</td>
                             <td v-if="row.expiration == null">
-                                <span class="badge bg-success">
-                                    Sin vencimiento</span
-                                >
+                                <i class="fi fi-check"></i>
                             </td>
                             <td v-else>{{ row.expiration }}</td>
                             <td>{{ row.unit }}</td>
@@ -77,6 +76,9 @@
                                     ></i>
                                 </button>
                             </td>
+                            <td>
+                                <BarCodebarra v-bind:row="row"></BarCodebarra>
+                            </td>
                         </tr>
                     </tbody>
                 </v-table>
@@ -94,6 +96,7 @@
 </template>
 <script>
 import SearchItem from "../utilities/search";
+import BarCodebarra from "./barcode";
 import Loader from "../utilities/loader";
 import { mapState } from "vuex";
 import status from "../../mixins/status";
@@ -101,7 +104,8 @@ export default {
     name: "list",
     components: {
         SearchItem,
-        Loader
+        Loader,
+        BarCodebarra
     },
     mixins: [status],
     data() {

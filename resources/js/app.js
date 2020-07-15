@@ -13,6 +13,7 @@ import VueCurrencyFilter from "vue-currency-filter";
 //start validate
 import es from "vee-validate/dist/locale/es";
 import VeeValidate, { Validator } from "vee-validate";
+
 //end validate
 //end import
 //vue use
