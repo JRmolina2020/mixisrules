@@ -23,8 +23,8 @@ Validator.localize("es", es);
 Vue.use(SmartTable);
 Vue.use(LaravelPermissionToVueJS);
 Vue.use(VueCurrencyFilter);
-Vue.mixin(auth);
 Vue.component(VueBarcode.name, VueBarcode);
+Vue.mixin(auth);
 
 //end use
 Vue.component("login", require("./components/login.vue").default);

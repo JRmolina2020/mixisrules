@@ -9,7 +9,8 @@ Route::get('/', function () {
 Route::post('login', 'AuthController@login');
 //auth
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('home', 'UserController@countuser');
+    Route::get('home', 'IndicatorsController@countuser');
+    // Route::get('expenses/tot', 'ExpenseController@totexpense');
     Route::get('usuarios', function () {
         return view('users.index');
     });

@@ -3,7 +3,7 @@
     <button
       type="button"
       @click="$emit('clear')"
-      class="btn btn-primary btn-sm"
+      class="btn bg-purple color-palette btn-sm"
       data-toggle="modal"
       data-target="#model"
     >

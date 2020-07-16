@@ -2,11 +2,11 @@
   <div>
     <button
       type="button"
-      class="btn btn-primary btn-sm"
+      class="btn btn-default btn-sm"
       data-toggle="modal"
       :data-target="'#model' + row.id"
     >
-      <i class="fi fi-email"></i>
+      <i class="fi fi-angle-dobule-up"></i>
     </button>
     <div
       class="modal fade"

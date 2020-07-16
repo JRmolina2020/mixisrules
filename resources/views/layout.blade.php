@@ -26,9 +26,9 @@
 <div class="content-wrapper">
 <div class="content-header">
   <div class="container-fluid">
-    <div class="row" id="app">
+    <div class="row" id="app" >
         @yield('measure')
-        <div class="card card-outline card-primary">
+        <div class="card card-outline">
           <div class="card-header">
             <h3 class="card-title">@yield('titlepanel')</h3>
           </div>

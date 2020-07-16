@@ -2,7 +2,7 @@ module.exports = {
     methods: {
         thestatus(row, route, prefijo) {
             if (row.status == 1) {
-                let url = route + "locked/" + row.id;
+                let url = route + "/locked/" + row.id;
                 axios.put(url).then(response => {
                     Swal.fire({
                         title: `${prefijo} ${row.name} ${response.data.message}`,
@@ -11,7 +11,7 @@ module.exports = {
                     this.getlist();
                 });
             } else {
-                let url = route + "available/" + row.id;
+                let url = route + "/available/" + row.id;
                 axios.put(url).then(response => {
                     Swal.fire({
                         title: `${prefijo} ${row.name} ${response.data.message}`,

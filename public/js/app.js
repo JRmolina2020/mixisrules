@@ -6186,55 +6186,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -7794,7 +7745,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "barcodebarra",
   props: {
@@ -9113,6 +9063,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/add */ "./resources/js/mixins/add.js");
 /* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mixins_add__WEBPACK_IMPORTED_MODULE_2__);
+var _methods, _$_veeValiate$name$co;
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -9252,24 +9204,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_$_veeValiate$name$co = {
   $_veeValiate: {
     validator: "new"
   },
@@ -9296,63 +9234,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["roles"])),
   created: function created() {
     this.getlist();
-  },
-  methods: {
-    getlist: function getlist() {
-      this.$store.dispatch("Roleactions");
-    },
-    show: function show(row) {
-      this.form.id = row.id;
-      this.form.name = row.name;
-      this.form.surname = row.surname;
-      this.form.email = row.email;
-      this.form.rol = row.roles[0].name;
-      this.status = false;
-      $("#model").modal("show");
-    },
-    data: function data() {
-      return {
-        actions: "Useractions",
-        url: "api/users",
-        submitted: true,
-        form: {
-          id: null,
-          name: "",
-          surname: "",
-          email: "",
-          rol: []
-        }
-      };
-    },
-    mixins: [_mixins_add__WEBPACK_IMPORTED_MODULE_2___default.a],
-    computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["roles"])),
-    created: function created() {
-      this.getlist();
-    },
-    methods: {
-      getlist: function getlist() {
-        this.$store.dispatch("Roleactions");
-      },
-      show: function show(row) {
-        this.form.id = row.id;
-        this.form.name = row.name;
-        this.form.surname = row.surname;
-        this.form.email = row.email;
-        this.form.rol = row.roles[0].name;
-        this.status = false;
-        $("#model").modal("show");
-      },
-      clear: function clear() {
-        this.form.id = null;
-        this.form.name = null;
-        this.form.surname = null;
-        this.form.email = null;
-        this.form.rol = null;
-        this.$validator.reset();
-      }
-    }
   }
-});
+}, _defineProperty(_$_veeValiate$name$co, "data", function data() {
+  return {
+    actions: "Useractions",
+    url: "api/users",
+    submitted: true,
+    form: {
+      id: null,
+      name: "",
+      surname: "",
+      email: "",
+      rol: []
+    }
+  };
+}), _defineProperty(_$_veeValiate$name$co, "mixins", [_mixins_add__WEBPACK_IMPORTED_MODULE_2___default.a]), _defineProperty(_$_veeValiate$name$co, "computed", _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["roles"]))), _defineProperty(_$_veeValiate$name$co, "created", function created() {
+  this.getlist();
+}), _defineProperty(_$_veeValiate$name$co, "methods", (_methods = {
+  getlist: function getlist() {
+    this.$store.dispatch("Roleactions");
+  }
+}, _defineProperty(_methods, "getlist", function getlist() {
+  this.$store.dispatch("Roleactions");
+}), _defineProperty(_methods, "show", function show(row) {
+  this.form.id = row.id;
+  this.form.name = row.name;
+  this.form.surname = row.surname;
+  this.form.email = row.email;
+  this.form.rol = row.roles[0].name;
+  this.status = false;
+  $("#model").modal("show");
+}), _defineProperty(_methods, "clear", function clear() {
+  this.form.id = null;
+  this.form.name = null;
+  this.form.surname = null;
+  this.form.email = null;
+  this.form.rol = null;
+  this.$validator.reset();
+}), _defineProperty(_methods, "show", function show(row) {
+  this.form.id = row.id;
+  this.form.name = row.name;
+  this.form.surname = row.surname;
+  this.form.email = row.email;
+  this.form.rol = row.roles[0].name;
+  this.status = false;
+  $("#model").modal("show");
+}), _methods)), _$_veeValiate$name$co);
 
 /***/ }),
 
@@ -9399,47 +9326,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utilities_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/search */ "./resources/js/components/utilities/search.vue");
-/* harmony import */ var _utilities_testview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilities/testview */ "./resources/js/components/utilities/testview.vue");
-/* harmony import */ var _utilities_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utilities/loader */ "./resources/js/components/utilities/loader.vue");
-/* harmony import */ var _modalpassword__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modalpassword */ "./resources/js/components/users/modalpassword.vue");
-/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/status */ "./resources/js/mixins/status.js");
-/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_mixins_status__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _utilities_search__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/search */ "./resources/js/components/utilities/search.vue");
+/* harmony import */ var _utilities_testview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/testview */ "./resources/js/components/utilities/testview.vue");
+/* harmony import */ var _utilities_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilities/loader */ "./resources/js/components/utilities/loader.vue");
+/* harmony import */ var _modalpassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modalpassword */ "./resources/js/components/users/modalpassword.vue");
+/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/status */ "./resources/js/mixins/status.js");
+/* harmony import */ var _mixins_status__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mixins_status__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -9534,12 +9433,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    SearchItem: _utilities_search__WEBPACK_IMPORTED_MODULE_1__["default"],
-    TestView: _utilities_testview__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Loader: _utilities_loader__WEBPACK_IMPORTED_MODULE_3__["default"],
-    ModalPassword: _modalpassword__WEBPACK_IMPORTED_MODULE_4__["default"]
+    SearchItem: _utilities_search__WEBPACK_IMPORTED_MODULE_0__["default"],
+    TestView: _utilities_testview__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Loader: _utilities_loader__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ModalPassword: _modalpassword__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  mixins: [_mixins_status__WEBPACK_IMPORTED_MODULE_5___default.a],
+  mixins: [_mixins_status__WEBPACK_IMPORTED_MODULE_4___default.a],
   data: function data() {
     return {
       prefijo: "El usuario",
@@ -9547,49 +9446,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       totalPages: 0
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapState"])(["filters", "users", "status", "urlusers"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_5__["mapState"])(["filters", "users", "status", "urlusers"])),
   created: function created() {
     this.getlist();
   },
   methods: {
     getlist: function getlist() {
       this.$store.dispatch("Useractions");
-    },
-    remove: function remove(row) {
-      var _this = this;
+    } // async remove(row) {
+    //   let url = this.urlusers + row.id;
+    //   let response = await axios.delete(url);
+    //   try {
+    //     this.getlist();
+    //     Swal.fire({
+    //       title: `El usuario ${row.name} ${response.data.message}`,
+    //       icon: "success"
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var url, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                url = _this.urlusers + row.id;
-                _context.next = 3;
-                return axios["delete"](url);
-
-              case 3:
-                response = _context.sent;
-
-                try {
-                  _this.getlist();
-
-                  Swal.fire({
-                    title: "El usuario ".concat(row.name, " ").concat(response.data.message),
-                    icon: "success"
-                  });
-                } catch (error) {
-                  console.log(error);
-                }
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    }
   }
 });
 
@@ -63523,7 +63400,7 @@ var render = function() {
                       shape: "tab",
                       title: "",
                       subtitle: "",
-                      color: "#0982BB"
+                      color: "#605ca8"
                     }
                   },
                   [
@@ -63615,11 +63492,9 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(
-                                            _vm.errors.first("tipo documento")
-                                          ) +
-                                          "\n                                    "
+                                        _vm._s(
+                                          _vm.errors.first("tipo documento")
+                                        )
                                       )
                                     ]
                                   )
@@ -63640,7 +63515,7 @@ var render = function() {
                                     rawName: "v-validate",
                                     value: "required|between:1,10000000000",
                                     expression:
-                                      "\n                                            'required|between:1,10000000000'\n                                        "
+                                      "\n                                              'required|between:1,10000000000'\n                                          "
                                   },
                                   {
                                     name: "model",
@@ -63676,11 +63551,7 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(
-                                            _vm.errors.first("documento")
-                                          ) +
-                                          "\n                                    "
+                                        _vm._s(_vm.errors.first("documento"))
                                       )
                                     ]
                                   )
@@ -63709,7 +63580,7 @@ var render = function() {
                                         value:
                                           "required|max:3|min:1|between:1,999",
                                         expression:
-                                          "\n                                            'required|max:3|min:1|between:1,999'\n                                        "
+                                          "\n                                              'required|max:3|min:1|between:1,999'\n                                          "
                                       }
                                     ],
                                     staticClass: "form-control form-control-sm",
@@ -63740,11 +63611,7 @@ var render = function() {
                                         { staticClass: "invalid-feedback" },
                                         [
                                           _vm._v(
-                                            "\n                                        " +
-                                              _vm._s(
-                                                _vm.errors.first("prefijo")
-                                              ) +
-                                              "\n                                    "
+                                            _vm._s(_vm.errors.first("prefijo"))
                                           )
                                         ]
                                       )
@@ -63805,13 +63672,7 @@ var render = function() {
                                 ? _c(
                                     "div",
                                     { staticClass: "invalid-feedback" },
-                                    [
-                                      _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(_vm.errors.first("nombre")) +
-                                          "\n                                    "
-                                      )
-                                    ]
+                                    [_vm._v(_vm._s(_vm.errors.first("nombre")))]
                                   )
                                 : _vm._e()
                             ])
@@ -63869,9 +63730,7 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(_vm.errors.first("apellido")) +
-                                          "\n                                    "
+                                        _vm._s(_vm.errors.first("apellido"))
                                       )
                                     ]
                                   )
@@ -63942,13 +63801,7 @@ var render = function() {
                                 ? _c(
                                     "div",
                                     { staticClass: "invalid-feedback" },
-                                    [
-                                      _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(_vm.errors.first("email")) +
-                                          "\n                                    "
-                                      )
-                                    ]
+                                    [_vm._v(_vm._s(_vm.errors.first("email")))]
                                   )
                                 : _vm._e()
                             ])
@@ -63967,7 +63820,7 @@ var render = function() {
                                     rawName: "v-validate",
                                     value: "required|between:1,10000000000",
                                     expression:
-                                      "\n                                            'required|between:1,10000000000'\n                                        "
+                                      "\n                                              'required|between:1,10000000000'\n                                          "
                                   },
                                   {
                                     name: "model",
@@ -64003,9 +63856,7 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(_vm.errors.first("telefono")) +
-                                          "\n                                    "
+                                        _vm._s(_vm.errors.first("telefono"))
                                       )
                                     ]
                                   )
@@ -64069,13 +63920,13 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
+                                        "\n                    " +
                                           _vm._s(
                                             _vm.errors.first(
                                               "nombre del negocio"
                                             )
                                           ) +
-                                          "\n                                    "
+                                          "\n                  "
                                       )
                                     ]
                                   )
@@ -64175,11 +64026,7 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(
-                                            _vm.errors.first("departamento")
-                                          ) +
-                                          "\n                                    "
+                                        _vm._s(_vm.errors.first("departamento"))
                                       )
                                     ]
                                   )
@@ -64232,11 +64079,7 @@ var render = function() {
                                       { staticClass: "invalid-feedback" },
                                       [
                                         _vm._v(
-                                          "\n                                        " +
-                                            _vm._s(
-                                              _vm.errors.first("municipio")
-                                            ) +
-                                            "\n                                    "
+                                          _vm._s(_vm.errors.first("municipio"))
                                         )
                                       ]
                                     )
@@ -64300,11 +64143,7 @@ var render = function() {
                                     { staticClass: "invalid-feedback" },
                                     [
                                       _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(
-                                            _vm.errors.first("dirección")
-                                          ) +
-                                          "\n                                    "
+                                        _vm._s(_vm.errors.first("dirección"))
                                       )
                                     ]
                                   )
@@ -64318,7 +64157,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-outline-primary",
+                        staticClass: "btn bg-purple btn-flat",
                         attrs: {
                           slot: "finish",
                           type: "submit",
@@ -64326,11 +64165,7 @@ var render = function() {
                         },
                         slot: "finish"
                       },
-                      [
-                        _vm._v(
-                          "\n                        Guardar\n                    "
-                        )
-                      ]
+                      [_vm._v("Guardar")]
                     )
                   ],
                   1
@@ -66363,7 +66198,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control form-control-sm",
-                    attrs: { type: "number" },
+                    attrs: { min: "0", max: "100", type: "number" },
                     domProps: { value: _vm.form.cant },
                     on: {
                       input: function($event) {
@@ -66389,7 +66224,10 @@ var render = function() {
                   _vm._l(_vm.increment, function(index) {
                     return _c(
                       "div",
-                      { key: index, staticClass: "col-lg-3" },
+                      {
+                        key: index,
+                        staticClass: "col-lg-3 col-md-12 col-xs-12 col-sm-12"
+                      },
                       [_c("barcode", { attrs: { value: _vm.row.code } })],
                       1
                     )
@@ -68666,11 +68504,7 @@ var render = function() {
                       _vm._v(" "),
                       _vm.submitted && _vm.errors.has("nombre")
                         ? _c("div", { staticClass: "invalid-feedback" }, [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(_vm.errors.first("nombre")) +
-                                "\n                            "
-                            )
+                            _vm._v(_vm._s(_vm.errors.first("nombre")))
                           ])
                         : _vm._e()
                     ])
@@ -68718,11 +68552,7 @@ var render = function() {
                       _vm._v(" "),
                       _vm.submitted && _vm.errors.has("apellido")
                         ? _c("div", { staticClass: "invalid-feedback" }, [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(_vm.errors.first("apellido")) +
-                                "\n                            "
-                            )
+                            _vm._v(_vm._s(_vm.errors.first("apellido")))
                           ])
                         : _vm._e()
                     ])
@@ -68771,11 +68601,7 @@ var render = function() {
                       _vm._v(" "),
                       _vm.submitted && _vm.errors.has("email")
                         ? _c("div", { staticClass: "invalid-feedback" }, [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(_vm.errors.first("email")) +
-                                "\n                            "
-                            )
+                            _vm._v(_vm._s(_vm.errors.first("email")))
                           ])
                         : _vm._e()
                     ])
@@ -68841,11 +68667,7 @@ var render = function() {
                         _vm._v(" "),
                         _vm.submitted && _vm.errors.has("rol")
                           ? _c("div", { staticClass: "invalid-feedback" }, [
-                              _vm._v(
-                                "\n                                    " +
-                                  _vm._s(_vm.errors.first("rol")) +
-                                  "\n                                "
-                              )
+                              _vm._v(_vm._s(_vm.errors.first("rol")))
                             ])
                           : _vm._e()
                       ])
@@ -68857,7 +68679,7 @@ var render = function() {
                   "button",
                   {
                     class: {
-                      "btn btn-outline-primary ": !this.form.id,
+                      "btn btn-outline-info ": !this.form.id,
                       "btn btn-outline-danger ": this.form.id
                     },
                     attrs: { hidden: _vm.errors.any(), type: "submit" }
@@ -68982,19 +68804,7 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("td", [_vm._v(_vm._s(row.surname))]),
                                 _vm._v(" "),
-                                _c("td", [
-                                  _c(
-                                    "span",
-                                    { staticClass: "pull-right badge bg-blue" },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(row.roles[0].name) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  )
-                                ]),
+                                _c("td", [_vm._v(_vm._s(row.roles[0].name))]),
                                 _vm._v(" "),
                                 _c(
                                   "td",
@@ -69069,24 +68879,6 @@ var render = function() {
                                           }
                                         },
                                         [_c("i", { staticClass: "fi fi-eye" })]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass: "btn btn-danger btn-sm",
-                                          attrs: { type: "button" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.remove(row)
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fi fi-trash"
-                                          })
-                                        ]
                                       )
                                     ])
                                   : _c("td", [
@@ -69530,7 +69322,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-primary btn-sm",
+        staticClass: "btn bg-purple color-palette btn-sm",
         attrs: {
           type: "button",
           "data-toggle": "modal",
@@ -69671,14 +69463,14 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-primary btn-sm",
+        staticClass: "btn btn-default btn-sm",
         attrs: {
           type: "button",
           "data-toggle": "modal",
           "data-target": "#model" + _vm.row.id
         }
       },
-      [_c("i", { staticClass: "fi fi-email" })]
+      [_c("i", { staticClass: "fi fi-angle-dobule-up" })]
     ),
     _vm._v(" "),
     _c(
@@ -88800,8 +88592,8 @@ vee_validate__WEBPACK_IMPORTED_MODULE_9__["Validator"].localize("es", vee_valida
 Vue.use(vuejs_smart_table__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.use(laravel_permission_to_vuejs__WEBPACK_IMPORTED_MODULE_3__["default"]);
 Vue.use(vue_currency_filter__WEBPACK_IMPORTED_MODULE_7__["default"]);
-Vue.mixin(_mixins_Auth_js__WEBPACK_IMPORTED_MODULE_2___default.a);
-Vue.component(_chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_5___default.a.name, _chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_5___default.a); //end use
+Vue.component(_chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_5___default.a.name, _chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_5___default.a);
+Vue.mixin(_mixins_Auth_js__WEBPACK_IMPORTED_MODULE_2___default.a); //end use
 
 Vue.component("login", __webpack_require__(/*! ./components/login.vue */ "./resources/js/components/login.vue")["default"]);
 Vue.component("users", __webpack_require__(/*! ./components/users/index.vue */ "./resources/js/components/users/index.vue")["default"]);
@@ -91458,7 +91250,7 @@ module.exports = {
       var _this = this;
 
       if (row.status == 1) {
-        var url = route + "locked/" + row.id;
+        var url = route + "/locked/" + row.id;
         axios.put(url).then(function (response) {
           Swal.fire({
             title: "".concat(prefijo, " ").concat(row.name, " ").concat(response.data.message),
@@ -91468,7 +91260,7 @@ module.exports = {
           _this.getlist();
         });
       } else {
-        var _url = route + "available/" + row.id;
+        var _url = route + "/available/" + row.id;
 
         axios.put(_url).then(function (response) {
           Swal.fire({
