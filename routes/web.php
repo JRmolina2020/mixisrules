@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('configuraciones', function () {
         return view('config.index');
     });
+    Route::get('ingreso', function () {
+        return view('entry.index');
+    });
 
     Route::prefix('api')->group(function () {
         Route::resource('users', 'UserController')->except([
@@ -91,6 +94,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('measures', 'MeasureController@index');
         Route::post('measures', 'MeasureController@store');
         Route::put('measures/{id}', 'MeasureController@update')->where('id', '[0-9]+');
-        //two
+
+        //income
+        Route::get('entry', 'EntryController@index');
+        //incomeDetails
+        Route::get('entrydetails/{id}', 'EntryDetailController@index')->where('id', '[0-9]+');
     });
 });

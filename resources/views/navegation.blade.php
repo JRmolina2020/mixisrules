@@ -66,6 +66,12 @@
       </a>
     </li>
     <li class="nav-item">
+      <a href="{{ url('ingreso') }}" class="nav-link">
+        <i class="fi fi-shopping-bag-1"></i>
+        <p>Mercancia</p>
+      </a>
+    </li>
+    <li class="nav-item">
       <a href="#" class="nav-link">
         <i class="fi fi-phone"></i>
         <p>

@@ -18,6 +18,8 @@ export default new Vuex.Store({
         cities: [],
         expenses: [],
         measures: [],
+        entry: [],
+        entrydetails: [],
         status: false,
         urlusers: "api/users",
         urlroles: "api/roles",
@@ -29,7 +31,9 @@ export default new Vuex.Store({
         urldepartaments: "api/departaments",
         urlcities: "api/cities",
         urlexpenses: "api/expenses",
-        urlmeasures: "api/measures"
+        urlmeasures: "api/measures",
+        urlentry: "api/entry",
+        urlentrydetail: "api/entrydetails"
     },
     mutations: {
         Usermutations(state, item) {
@@ -64,6 +68,12 @@ export default new Vuex.Store({
         },
         Measuremutations(state, item) {
             state.measures = item;
+        },
+        Entrymutations(state, item) {
+            state.entry = item;
+        },
+        EntryDetailsmutations(state, item) {
+            state.entrydetails = item;
         }
     },
     actions: {
@@ -170,6 +180,24 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get(`${state.urlmeasures}`);
                 commit("Measuremutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async Entryactions({ commit, state }) {
+            try {
+                let response = await axios.get(`${state.urlentry}`);
+                commit("Entrymutations", response.data);
+                state.status = true;
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async EntryDetailsactions({ commit, state }, id) {
+            try {
+                let response = await axios.get(`${state.urlentrydetail}/${id}`);
+                commit("EntryDetailsmutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

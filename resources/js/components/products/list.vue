@@ -1,130 +1,120 @@
 <template>
-    <div>
-        <div v-if="!status">
-            <Loader></Loader>
-        </div>
-        <div v-else>
-            <Search-Item titleinput="Buscar Productos"></Search-Item>
-            <div class="table-responsive mt-3">
-                <v-table
-                    :data="products"
-                    :currentPage.sync="currentPage"
-                    :filters="filters"
-                    :pageSize="4"
-                    @totalPagesChanged="totalPages = $event"
-                    class="table table-striped"
-                >
-                    <thead slot="head">
-                        <tr>
-                            <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>Categoria</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                            <th>Vencimiento</th>
-                            <th>Unit.medida</th>
-                            <th>Estado</th>
-                            <th>Opciones</th>
-                            <th>barra</th>
-                        </tr>
-                    </thead>
-                    <tbody slot="body" slot-scope="{ displayData }">
-                        <tr v-for="(row, index) in displayData" :key="index">
-                            <td>{{ row.code }}</td>
-                            <td>{{ row.name }}</td>
-                            <td>{{ row.name_categorie }}</td>
-                            <td>${{ row.sale_price | currency }}</td>
-                            <td v-if="row.stock == 0">
-                                <span class="badge bg-danger">
-                                    <i class="fi fi-frowning"></i> 0
-                                </span>
-                            </td>
-                            <td v-else>{{ row.stock }}</td>
-                            <td v-if="row.expiration == null">
-                                <i class="fi fi-check"></i>
-                            </td>
-                            <td v-else>{{ row.expiration }}</td>
-                            <td>{{ row.unit }}</td>
-                            <td>
-                                <button
-                                    type="button"
-                                    @click="$emit('show', row)"
-                                    class="btn btn-warning btn-sm"
-                                >
-                                    <i class="fi fi-eye"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <button
-                                    type="button"
-                                    @click="
+  <div>
+    <div v-if="!status">
+      <Loader></Loader>
+    </div>
+    <div v-else>
+      <Search-Item titleinput="Buscar Productos"></Search-Item>
+      <div class="table-responsive mt-3">
+        <v-table
+          :data="products"
+          :currentPage.sync="currentPage"
+          :filters="filters"
+          :pageSize="4"
+          @totalPagesChanged="totalPages = $event"
+          class="table table-striped"
+        >
+          <thead slot="head">
+            <tr>
+              <th>Categoria</th>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Stock</th>
+              <th>Vencimiento</th>
+              <th>Detalle</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody slot="body" slot-scope="{ displayData }">
+            <tr v-for="(row, index) in displayData" :key="index">
+              <td>{{ row.name_categorie }}</td>
+              <td>{{ row.code }}</td>
+              <td>{{ row.name }}</td>
+              <td>{{ row.stock }}</td>
+              <td v-if="row.expiration == null">sin vencimiento</td>
+              <td v-else>{{ row.expiration }}</td>
+              <td>
+                <DetailsProduct v-bind:row="row"></DetailsProduct>
+              </td>
+
+              <td>
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    @click="$emit('show', row)"
+                    class="btn bg-success btn-flat btn-sm"
+                  >
+                    <i class="fi fi-eye"></i>
+                  </button>
+                  <button
+                    type="button"
+                    @click="
                                         thestatus(row, urlproducts, prefijo)
                                     "
-                                    v-bind:class="{
-                                        'btn btn-sm': true,
+                    v-bind:class="{
+                                        'btn btn-sm btn-flat': true,
                                         'btn-success': row.status,
                                         'btn-danger': row.status == 0
                                     }"
-                                >
-                                    <i
-                                        :class="
+                  >
+                    <i
+                      :class="
                                             row.status
                                                 ? 'fi fi-toggle-on'
                                                 : 'fi fi-toggle-off'
                                         "
-                                        aria-hidden="true"
-                                    ></i>
-                                </button>
-                            </td>
-                            <td>
-                                <BarCodebarra v-bind:row="row"></BarCodebarra>
-                            </td>
-                        </tr>
-                    </tbody>
-                </v-table>
-            </div>
-
-            <div class="box-footer clearfix">
-                <smart-pagination
-                    :currentPage.sync="currentPage"
-                    :maxPageLinks="6"
-                    :totalPages="totalPages"
-                />
-            </div>
-        </div>
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </v-table>
+      </div>
+      <div class="box-footer clearfix">
+        <smart-pagination
+          :currentPage.sync="currentPage"
+          :maxPageLinks="6"
+          :totalPages="totalPages"
+        />
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import SearchItem from "../utilities/search";
 import BarCodebarra from "./barcode";
+import DetailsProduct from "./detailsproduct";
 import Loader from "../utilities/loader";
 import { mapState } from "vuex";
 import status from "../../mixins/status";
 export default {
-    name: "list",
-    components: {
-        SearchItem,
-        Loader,
-        BarCodebarra
-    },
-    mixins: [status],
-    data() {
-        return {
-            prefijo: "El producto",
-            currentPage: 1,
-            totalPages: 0
-        };
-    },
-    computed: {
-        ...mapState(["filters", "products", "status", "urlproducts"])
-    },
-    created() {
-        this.getlist();
-    },
-    methods: {
-        getlist(status) {
-            this.$store.dispatch("Productactions");
-        }
+  name: "list",
+  components: {
+    SearchItem,
+    Loader,
+    BarCodebarra,
+    DetailsProduct
+  },
+  mixins: [status],
+  data() {
+    return {
+      prefijo: "El producto",
+      currentPage: 1,
+      totalPages: 0
+    };
+  },
+  computed: {
+    ...mapState(["filters", "products", "status", "urlproducts"])
+  },
+  created() {
+    this.getlist();
+  },
+  methods: {
+    getlist(status) {
+      this.$store.dispatch("Productactions");
     }
+  }
 };
 </script>

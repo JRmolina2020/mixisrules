@@ -21,6 +21,10 @@ class ProductController extends Controller
                 'products.id',
                 'products.code',
                 'products.name',
+                'products.purchase_price',
+                'products.utility',
+                'products.tax_type',
+                'products.tax',
                 'products.sale_price',
                 'products.stock',
                 'products.description',
@@ -46,11 +50,14 @@ class ProductController extends Controller
             'categorie_id' => $request['categorie_id'],
             'code' => $request['code'],
             'name' => $request['name'],
-            'type_product' => $request['type_product'],
+            'purchase_price' => $request['purchase_price'],
+            'utility' => $request['utility'],
+            'tax_type' => $request['tax_type'],
+            'tax' => $request['tax'],
             'sale_price' => $request['sale_price'],
             'description' => $request['description'],
             'expiration' => $request['expiration'],
-            'unit' => $request['unit']
+            'unit' => $request['unit'],
         ]);
         return response()->json(['message' => 'El producto ha sido creado'], 200);
     }
@@ -70,10 +77,15 @@ class ProductController extends Controller
             'categorie_id' => $request['categorie_id'],
             'code' => request('code'),
             'name' => request('name'),
+            'purchase_price' => request('purchase_price'),
+            'utility' => request('utility'),
+            'tax_type' => request('tax_type'),
+            'tax' => request('tax'),
             'sale_price' => request('sale_price'),
             'description' => request('description'),
             'expiration' => request('expiration'),
-            'unit' => request('unit')
+            'unit' => request('unit'),
+
         ])->save();
         return response()->json(['message' => 'El producto ha sido modificado'], 201);
     }

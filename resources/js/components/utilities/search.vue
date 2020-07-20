@@ -2,7 +2,7 @@
   <div class="input-group input-group-sm">
     <input type="text" class="form-control" v-model="filters.data.value" :placeholder="titleinput" />
     <div class="input-group-append">
-      <div class="btn btn-primary">
+      <div class="btn bg-purple btn-sm">
         <i class="fi fi-search"></i>
       </div>
     </div>

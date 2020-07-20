@@ -15,7 +15,7 @@ class CreateMeasuresTable extends Migration
     {
         Schema::create('measures', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 50);
         });
     }
 
