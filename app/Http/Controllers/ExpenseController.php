@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Expense;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
+
 
 
 class ExpenseController extends Controller

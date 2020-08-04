@@ -5,7 +5,18 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         filters: {
-            data: { value: "", keys: ["name", "surname", "email"] }
+            data: {
+                value: "",
+                keys: [
+                    "name",
+                    "surname",
+                    "email",
+                    "code",
+                    "provider_name",
+                    "id",
+                    "company_name"
+                ]
+            }
         },
         users: [],
         roles: [],
@@ -18,8 +29,8 @@ export default new Vuex.Store({
         cities: [],
         expenses: [],
         measures: [],
-        entry: [],
-        entrydetails: [],
+        entries: [],
+        entriesdetails: [],
         status: false,
         urlusers: "api/users",
         urlroles: "api/roles",
@@ -32,8 +43,8 @@ export default new Vuex.Store({
         urlcities: "api/cities",
         urlexpenses: "api/expenses",
         urlmeasures: "api/measures",
-        urlentry: "api/entry",
-        urlentrydetail: "api/entrydetails"
+        urlentries: "api/entries",
+        urlentriesdetail: "api/entriesdetails"
     },
     mutations: {
         Usermutations(state, item) {
@@ -69,11 +80,11 @@ export default new Vuex.Store({
         Measuremutations(state, item) {
             state.measures = item;
         },
-        Entrymutations(state, item) {
-            state.entry = item;
+        Entriesmutations(state, item) {
+            state.entries = item;
         },
-        EntryDetailsmutations(state, item) {
-            state.entrydetails = item;
+        EntriesDetailsmutations(state, item) {
+            state.entriesdetails = item;
         }
     },
     actions: {
@@ -185,19 +196,21 @@ export default new Vuex.Store({
                 console.log(error);
             }
         },
-        async Entryactions({ commit, state }) {
+        async Entriesactions({ commit, state }) {
             try {
-                let response = await axios.get(`${state.urlentry}`);
-                commit("Entrymutations", response.data);
+                let response = await axios.get(`${state.urlentries}`);
+                commit("Entriesmutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);
             }
         },
-        async EntryDetailsactions({ commit, state }, id) {
+        async EntriesDetailsactions({ commit, state }, id) {
             try {
-                let response = await axios.get(`${state.urlentrydetail}/${id}`);
-                commit("EntryDetailsmutations", response.data);
+                let response = await axios.get(
+                    `${state.urlentriesdetail}/${id}`
+                );
+                commit("EntriesDetailsmutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

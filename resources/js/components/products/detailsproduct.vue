@@ -21,40 +21,44 @@
             <p>
               <strong>Ficha de precio</strong>
             </p>
-            <table class="table table-bordered">
-              <tbody>
-                <tr class="table-warning">
-                  <td>Compra</td>
-                  <td>%</td>
-                  <td>Iva</td>
-                  <td>Utilidad</td>
-                  <td>Venta</td>
-                </tr>
-                <tr>
-                  <td>${{row.purchase_price |currency}}</td>
-                  <td>{{row.tax_type }}%</td>
-                  <td>${{ row.tax |currency }}</td>
-                  <td>${{row.utility | currency}}</td>
-                  <td>${{row.sale_price |currency}}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr class="table-warning">
+                    <td>Compra</td>
+                    <td>%</td>
+                    <td>Iva</td>
+                    <td>Utilidad</td>
+                    <td>Venta</td>
+                  </tr>
+                  <tr>
+                    <td>${{row.purchase_price |currency}}</td>
+                    <td>{{row.tax_type }}%</td>
+                    <td>${{ row.tax |currency }}</td>
+                    <td>${{row.utility | currency}}</td>
+                    <td>${{row.sale_price |currency}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <p>
               <strong>Ficha técnica</strong>
             </p>
-            <table class="table table-bordered">
-              <tbody>
-                <tr class="table-warning">
-                  <td>Vencimiento</td>
-                  <td>Und.medida</td>
-                </tr>
-                <tr>
-                  <td v-if="row.expiration">{{row.expiration}}</td>
-                  <td v-else>Sin fecha</td>
-                  <td>{{row.unit }}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr class="table-warning">
+                    <td>Vencimiento</td>
+                    <td>Und.medida</td>
+                  </tr>
+                  <tr>
+                    <td v-if="row.expiration">{{row.expiration}}</td>
+                    <td v-else>Sin fecha</td>
+                    <td>{{row.unit }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <p>
               <strong>Descripción detallada del producto</strong>
             </p>

@@ -45,7 +45,7 @@ Vue.component("clients", require("./components/clients/index.vue").default);
 Vue.component("providers", require("./components/providers/index.vue").default);
 Vue.component("expenses", require("./components/expenses/index.vue").default);
 Vue.component("measures", require("./components/config/index.vue").default);
-Vue.component("entry", require("./components/entry/index.vue").default);
+Vue.component("entry", require("./components/entries/index.vue").default);
 const app = new Vue({
     el: "#app",
     store

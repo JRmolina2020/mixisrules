@@ -17,11 +17,11 @@
       aria-labelledby="modelTitleId"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-body">
             <v-table
-              :data="entrydetails"
+              :data="entriesdetails"
               :currentPage.sync="currentPage"
               :filters="filters"
               :pageSize="10"
@@ -35,7 +35,7 @@
                   <th>Producto</th>
                   <th>Cantidad</th>
                   <th>Precio</th>
-                  <td>Subtotal</td>
+                  <th>Subtotal</th>
                 </tr>
               </thead>
               <tbody slot="body" slot-scope="{ displayData }">
@@ -56,7 +56,7 @@
               />
             </div>
             <div class="col-lg-12 mt-3">
-              <strong>TOTAL</strong>
+              <h5>TOTAL</h5>
               ${{ row.total|currency }}
             </div>
           </div>
@@ -73,26 +73,26 @@ export default {
   props: {
     row: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    SearchItem
+    SearchItem,
   },
   data() {
     return {
       currentPage: 1,
-      totalPages: 0
+      totalPages: 0,
     };
   },
 
   computed: {
-    ...mapState(["filters", "entrydetails", "urlentrydetail"])
+    ...mapState(["filters", "entriesdetails", "urlentriesdetail"]),
   },
   methods: {
     getlistProduct() {
-      this.$store.dispatch("EntryDetailsactions", this.row.id);
-    }
-  }
+      this.$store.dispatch("EntriesDetailsactions", this.row.id);
+    },
+  },
 };
 </script>

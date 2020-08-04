@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class IncomeDetail extends Model
 {
-    protected $table = 'income_details';
+    protected $table = 'entries_details';
     public $timestamps = false;
     protected $fillable = ['entry_id', 'product_id', 'quantity', 'price', 'subtotal'];
 

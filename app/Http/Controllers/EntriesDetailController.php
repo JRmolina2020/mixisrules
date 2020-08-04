@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class EntryDetailController extends Controller
+class EntriesDetailController extends Controller
 {
     public function index($id)
     {
-        $income = DB::table('income_details as i')
-            ->join('income as in', 'i.entry_id', '=', 'in.id')
+        $income = DB::table('entries_details as i')
+            ->join('entries as in', 'i.entry_id', '=', 'in.id')
             ->join('products as p', 'i.product_id', '=', 'p.id')
             ->select(
                 'code',

@@ -7,7 +7,7 @@
       <Search-Item titleinput="Buscar ingreso de mercancia"></Search-Item>
       <div class="table-responsive mt-3">
         <v-table
-          :data="entry"
+          :data="entries"
           :currentPage.sync="currentPage"
           :filters="filters"
           :pageSize="10"
@@ -80,26 +80,26 @@ export default {
   components: {
     SearchItem,
     Loader,
-    ModalDetails
+    ModalDetails,
   },
   mixins: [status],
   data() {
     return {
       prefijo: "El ingreso de mercancia",
       currentPage: 1,
-      totalPages: 0
+      totalPages: 0,
     };
   },
   computed: {
-    ...mapState(["filters", "entry", "status", "urlentry"])
+    ...mapState(["filters", "entries", "status", "urlentries"]),
   },
   created() {
     this.getlist();
   },
   methods: {
     getlist() {
-      this.$store.dispatch("Entryactions");
-    }
-  }
+      this.$store.dispatch("Entriesactions");
+    },
+  },
 };
 </script>

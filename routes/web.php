@@ -87,7 +87,7 @@ Route::group(['middleware' => 'auth'], function () {
         //expenses
         Route::get('expenses/', 'ExpenseController@index');
         Route::get('expenses/one', 'ExpenseController@indexOne');
-        Route::post('expenses/', 'ExpenseController@store');
+        Route::post('expenses', 'ExpenseController@store');
         Route::put('expenses/{id}', 'ExpenseController@update')->where('id', '[0-9]+');
         //config
         //one
@@ -96,8 +96,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('measures/{id}', 'MeasureController@update')->where('id', '[0-9]+');
 
         //income
-        Route::get('entry', 'EntryController@index');
+        Route::get('entries', 'EntriesController@index');
+        Route::post('entries', 'EntriesController@store');
         //incomeDetails
-        Route::get('entrydetails/{id}', 'EntryDetailController@index')->where('id', '[0-9]+');
+        Route::get('entriesdetails/{id}', 'EntriesDetailController@index')->where('id', '[0-9]+');
     });
 });
